@@ -1,6 +1,6 @@
 <?php
-/*header('Access-Control-Allow-Origin: *');
-header('Content-type: application/json');*/
+header('Access-Control-Allow-Origin: *');
+header('Content-type: application/json');
 
 $articleRea=[
 	["id"=>1, "titre"=> "Home Control",
