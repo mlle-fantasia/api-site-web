@@ -1,6 +1,6 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header('Content-type: application/json');
+/*header('Access-Control-Allow-Origin: *');
+header('Content-type: application/json');*/
 
 $articleRea=[
 	["id"=>1, "titre"=> "Home Control",
@@ -15,5 +15,14 @@ $articleRea=[
 "],
 ];
 
-echo json_encode(['error' => false, 'payload' => $articleRea]);
-return true;
+
+if(!empty($_GET['id'])){
+    foreach($articleRea as $article){
+        if($article['id'] != $_GET['id']){
+            continue;
+        }
+       
+        echo json_encode(['error' => false, 'payload' => $article]);
+        return true;
+    }
+}
