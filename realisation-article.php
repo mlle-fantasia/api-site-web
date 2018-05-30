@@ -22,7 +22,7 @@ if(!empty($_GET['id'])){
             continue;
         }
        
-        echo json_encode(['error' => false, 'payload' => $article]);
+        echo json_encode(['error' => false, 'payload' => [$article]]);
         return true;
     }
 }
