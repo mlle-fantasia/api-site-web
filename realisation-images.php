@@ -5,10 +5,10 @@ header('Content-type: application/json');
 $listeImage = [];
 
 $images = [
-    ["id"=>1, "id_article"=>1, "alt"=> "captures d'écran de l'appli web", "image"=>"images/imprimEcranEx.jpg"],
-    ["id"=>2, "id_article"=>1, "alt"=> "architecture du systeme", "image"=>"images/archi-materiel.png"],
-    ["id"=>3, "id_article"=>1, "alt"=> "diagrame de cas d'utilisation", "image"=>"images/diagramCasUtilisationexemples.jpg"],
-    ["id"=>4, "id_article"=>2, "alt"=> "maquette de la page d'accueil", "image"=>"images/site randonnée-2.png"],
+    ["src"=>"images/imprimEcranEx.jpg"],
+    [ "src"=>"images/archi-materiel.png"],
+    [ "src"=>"images/diagramCasUtilisationexemples.jpg"],
+    [ "src"=>"images/site randonnée-2.png"],
 ];
 
 if(!empty($_GET['id'])){
