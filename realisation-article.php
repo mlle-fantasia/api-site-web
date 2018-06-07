@@ -15,12 +15,15 @@ $contenuHomeControl = <<<EOF
 	<h4>2.1 Specifications</h4>
 	<p>Après avoir défini le nom, le logo et la charte graphique grâce à un brainstorming, nous avons définis les fonctionnalités au format user story cela nous a permis, dans un premier temps, de
 	 nous mettre d'accord sur le sujet et de définir les fonctionnalités à développer  par ordre d'importance (code couleur).</p>
+	 <img src="/upload/images/trello.png" alt="capture d'écran trello qui liste les fonctionnalités définies"/>
 	<h4>2.2 Architecture</h4>
 	<p>Exceptés les équipements, chaque rectangle est une entité physique, le modem permet de connecter les différents appareils entre eux. Les équipements sont simulés virtuellement dans le 
 	simulateur domotique.</p>
+	<img src="/upload/images/archi-materiel.png" alt="schemas de l'architecture du logiciel"/>
 	<h4>2.3 Diagrames UML</h4>
 	<p>Les diagrammes des cas d’utilisation permettent de visualiser l’interaction entre les différents acteurs et le système. Les acteurs humains qui ont des droits différents et les acteurs 
 	non-humains : le serveur, la BDD et le simulateur. ici trois exemples parmis les huit diagrames réalisés.</p>
+	<img src="/upload/images/diagramCasUtilisationexemples.jpg" alt="quelques exemples de diagrammes de cas d'utilisation"/>
 	<h4>2.5 l'intégration</h4>
 <p>à partir des maquettes réalisées sur photoshop, nous avons intégré les différentes page du site. Ici, quatre captures d'écran de l'application web. Nous étions  trois sur l'intégration web, nous 
 avons utilisé HTML CSS Bootstrap et jQuery .</p>
@@ -68,7 +71,7 @@ $contenuHomeRando = <<<EOF
 	Grâce à wamp, la base de données que j'ai utilisée est MySql  et pour y accéder, j'utilise HeidiSQL. </p>
 <h4>4.1 Quelques exemples de requêtes expliquées</h4>
 <p>- Page d'accueil, trier les randonnées par difficulté :</p>
-<img src="/upload/images/homeControl.png" alt="image test"/>
+
 EOF;
 $contenuHomePendu = <<<EOF
 <p>Ce projet est un TP que j'ai réalisé pour le cours sur Réact Sur OpenClassroom</p>
@@ -117,7 +120,7 @@ $articleRea = [
 
 if (!empty($_GET['id'])) {
     foreach ($articleRea as $article) {
-        if ($article['id'] != $_GET['id']) {
+        if ((int)$article['id'] !== (int)$_GET['id']) {
             continue;
         }
 
