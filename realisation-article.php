@@ -101,8 +101,8 @@ de là on récupère une table qu'on appellera t qui contient deux colonnes : l'
 - puis on les range dans l'ordre : en premier ceux qui ont dans la colonne nombre un chiffre plus important (c'est-à-dire ceux qui ont le plus de thèmes en commun)<br/>
 - puis on affiche en premier ceux qui ont un id plus élevé (c'est-à-dire ceux qui sont parus en dernier)<br/>
 - et enfin on en affiche que quatre maximums.</p>
-
 EOF;
+
 $contenuPendu = <<<EOF
 <p>Ce projet est un TP que j'ai réalisé pour le cours sur Réact Sur OpenClassroom</p>
 <h3>Extrait des consignes du TP : </h3>
@@ -137,9 +137,40 @@ EOF;
 $contenuVide = <<<EOF
 <h4>Article en cours d'écriture</h4>
 EOF;
+$contenuSitePerso = <<<EOF
+<h3>1 Introduction</h3>
+<h4>1.1 contexte</h4>
+	<p>j'ai créé ce site après ma formation Développement et Administration Systèmes d'Information Expert afin de trouver un emploi. Ce site me présente et présente mes réalisations. Il a été 
+	réalisé en ReactJs.</p>
+<h4>1.2 Pourquoi ReactJs ?</h4>
+	<p>React était déjà très populaire parmi les projets open-source et il l'est devenu encore plus losque Facebook, son créateur, a accepté de changer la licence  et de passer React sous licende 
+	MIT.  Ceci sous la pression des utilisateurs de la librairie. Ainsi il n'y a plus de risque à l'utiliser et elle est encore dans sa phase ascendante ! De nombres entreprises l'utilisent et elle
+	 apparait sur de nombreuse offres d'emploi. <br/>
+	C'est pour cela que je l'ai choisi pour ce site. Bien qu'un site vitrine ne présente pas une grande interaction avec les utilisateurs, je voulais surtout apprendre à l'utiliser et montrer que je suis capable d'apprendre un langage sur demande. </p>
+<h3>2 Le design</h3>
+<p>Je voulais un design simple, joli et rapide à réaliser (le but étant de trouver un travail rapidement). <br/>
+Les couleurs sont celles que j'avais choisies pour mon auto-entreprise : Mlle Fantasia. Le vert turquoise est une couleur encore à la mode et qui connote de l'univers du numérique. L'image de fond 
+sur la page d'accueil (pour les écrans de plus de 768 pixels) à une vocation humouristique grâce au contraste entre ce que l'on voit et ce que l'on lit.</p> 
+<h3>3 technique</h3>
+<h4>3.1 le routage</h4>
 
+<p>j'utilisais au départ une fonction onClick sur chaque lien qui affichait le composant demandé. J'ai rapidement remplacé cette méthode par un système de routage. Pour cela, j'ai installé "react-router-dom" et "react-router-hash-link".<br/>
+le composant route appelé par l'index, se compose d'un tableau.<br/>
+ 
+A partir de ce tableau, j'ai créé un tableau de liens et un tableau de route. Ces tableaux sont passés en props au composant App losque celui ci est appelé. Ainsi, le tableau de liens va permettre à App d'afficher, sur toutes les pages, les liens de la navigation et les liens qui apparaissent au dessus du footer.<br/>
+Le tableau de route se présente comme ceci : <br/>
+ 
+La ligne route signifie que lorque le path element.route (exemple : "/cv") apparait dans l'url, le composant element.composent est appelé (exemple : pour le path  "/cv", c'est le composent "cvPage" qui est appelé).<br/>
+Mais pour que cela fonctionne, il faut que l'url s'actualise à chaque clic d'un lien. Pour cela j'ai utilisé hashLink (Link) : <br/>
+ 
+Lorqu'un id est mentionné dans l'url, le composant réalisations va chercher le bon article et l'affiche dans le render.</p>
+<h4>3.2 l'API</h4>
+<p>Pour ce site, j'ai crée une API en php  qui s'occupe de retourner les réalisations et les articles demandés.  Lorque la page réalisation est demandées, l'api retourne le tableau de toutes les réalisations et la page affiche le titre et l'image principale. Lorsqu'une réalisation est demandés, le composant demande à l'api de lui renvoyer l'article correspondant à l'id passé dans l'url.<br/>
+Pour le moment, les articles sont écrit directement dans le fichier php, en attendant de les mettre dans une base de données.</p>
+EOF;
 
 $articleRea = [
+    ["id" => 6, "titre" => "Site personnel",         "image" => "sitePerso",     "contenu" => $contenuSitePerso],
     ["id" => 1, "titre" => "Home Control",           "image" => "domotique",  "contenu" => $contenuHomeControl],
     ["id" => 2, "titre" => "Un site de randonnée",   "image" => "randonnee", "contenu" => $contenuRando],
 //    ["id" => 3, "titre" => "Ptitdej.fr",             "image" => "ptidej",    "contenu" => $contenuVide],
