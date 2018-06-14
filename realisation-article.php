@@ -138,35 +138,40 @@ $contenuVide = <<<EOF
 <h4>Article en cours d'écriture</h4>
 EOF;
 $contenuSitePerso = <<<EOF
-<h3>1 Introduction</h3>
-<h4>1.1 contexte</h4>
-	<p>j'ai créé ce site après ma formation Développement et Administration Systèmes d'Information Expert afin de trouver un emploi. Ce site me présente et présente mes réalisations. Il a été 
-	réalisé en ReactJs.</p>
-<h4>1.2 Pourquoi ReactJs ?</h4>
-	<p>React était déjà très populaire parmi les projets open-source et il l'est devenu encore plus losque Facebook, son créateur, a accepté de changer la licence  et de passer React sous licende 
-	MIT.  Ceci sous la pression des utilisateurs de la librairie. Ainsi il n'y a plus de risque à l'utiliser et elle est encore dans sa phase ascendante ! De nombres entreprises l'utilisent et elle
-	 apparait sur de nombreuse offres d'emploi. <br/>
-	C'est pour cela que je l'ai choisi pour ce site. Bien qu'un site vitrine ne présente pas une grande interaction avec les utilisateurs, je voulais surtout apprendre à l'utiliser et montrer que je suis capable d'apprendre un langage sur demande. </p>
-<h3>2 Le design</h3>
-<p>Je voulais un design simple, joli et rapide à réaliser (le but étant de trouver un travail rapidement). <br/>
-Les couleurs sont celles que j'avais choisies pour mon auto-entreprise : Mlle Fantasia. Le vert turquoise est une couleur encore à la mode et qui connote de l'univers du numérique. L'image de fond 
-sur la page d'accueil (pour les écrans de plus de 768 pixels) à une vocation humouristique grâce au contraste entre ce que l'on voit et ce que l'on lit.</p> 
-<h3>3 technique</h3>
-<h4>3.1 le routage</h4>
+<h3>Introduction</h3>
+<h4>contexte</h4>
+	<p>j'ai créé ce site après ma formation Développement et Administration Systèmes d'Information Expert afin de trouver un emploi. Ce site me présente et explique mes réalisations. Je l'ai réalisé 
+	en ReactJs.</p>
+<h4>Pourquoi ReactJs ?</h4>
+	<p>React était déjà très populaire parmi les projets open-source et il l'est devenu encore plus lorsque Facebook, son créateur, a été contraint de changer sa licence  et de passer React sous 
+	licence MIT.  Ceci sous la pression des utilisateurs de la librairie. Ainsi les développeurs peuvent l'utiliser sans risque. De nombres entreprises l'utilisent et elle apparait sur de nombreuses 
+	offres d'emploi. <br/>
+	C'est pour cela que je l'ai choisi pour ce site. Bien qu'un site vitrine ne présente pas une grande interaction avec les visiteurs, je voulais surtout apprendre à l'utiliser et montrer que je suis
+	 capable d'apprendre un langage sur demande. </p>
+<h3>Le design</h3>
+<p>Je voulais un design simple, efficace et rapide à réaliser, le but étant de passer plus de temps à l'apprentissage de react qu'a peaufiner le design du site et ainsi de trouver un travail 
+rapidement. <br/>
+Les couleurs sont celles que j'avais choisies pour mon auto-entreprise : Mlle Fantasia. Le vert turquoise est une couleur encore à la mode et qui connote de l'univers du numérique. L'image de fond
+ sur la page d'accueil (pour les écrans de plus de 768 pixels) à une vocation humoristique. Cet effet est rendu par le contraste entre ce que l'on voit et ce que l'on lit.</p> 
+<h3>La technique</h3>
+<h4>le routage?</h4>
+<p>J'utilisais au départ une fonction onClick sur chaque lien qui affichait le composant demandé. C'était une solution temporaire pour tester le site avant de me pencher sur le routage. Pour le routage, j'ai installé "react-router-dom" et "react-router-hash-link" ("react-router-hash-link" est utile pour gérer les "#" dans l'url.  Ces derniers servent à nous amèner, à chaque fois, en haut de la page) .<br/>
+Je vais décrire ici le composant "route",le premier composant de l'application qui s'occupe d'initier les différentes routes. Sa fonction render se présente comme ceci : <br/>
+ <img src="/upload/images/Capture4.PNG" alt="code du composant route"/>
+explications :<br/> 
+J'ai créé le tableau LIENS qui liste toutes les routes possibles, quelles soit stricte (comme la première ligne) ou dynamique (comme la troisième ligne : ".realisations/:id" où l'"id" est une variable qui correspond à un article en particulier). Ce tableau me permet également de générer le menu de navigation.<br/> 
+A partir de ce tableau, je dois donc extraire les noms à afficher dans la barre de navigation. Dans celle-ci je veux faire apparaitre seulement "cv", "réalisations" et "contact". J'ai donc créé un autre tableau (appelé liensNavigation)qui filtre le premier. En effet, la fonction filter fait un tri dans un tableau et ne retourne que les lignes qui nous intéressent. Ici celles où l'option link égal true.<br/>
+j'ai ensuite créé un tableau de routes qui permettra d'appeler le composant de la page demandée. Ici j'ai utilisé la fonction map. En effet, à la différence de filter, map ne trie pas le tableau, elle utilise chaque ligne.
+La ligne route signifie que lorsque le path element.route (exemple : "/cv") apparait dans l'url, le composant element.component est appelé et rendu dans le navigateur (exemple : pour l'url "/cv", c'est le composent "cvPage" qui est appelé et rendu).<br/>
+Ces tableaux sont passés en props au composant App lorsque celui-ci est appelé. C'est App qui s'occupera du rendu des pages. J'expliquerai plus tard le composant "Provider"<br/>
+le composant "route" sert simplement à modifier le rendu de la page en fonction de l'url, maintenant, il faut quelque chose qui va modifier l'url à chaque clic d'un lien. Pour cela j' ai utilisé hashLink (Link). Pour chaque lien, je défini ce qui doit s'afficher dans l'url. <br/>
+Lorsqu'un id est mentionné dans l'url, le composant "réalisations" effectue une requête à l'api afin de récupérer l'article correspondant et l'afficher.</p>
+<h4>L'API</h4>
+<p>Pour ce site, j'ai créé une API en php  qui s'occupe de retourner les réalisations et les articles demandés :  <br/>
+- Lorsque la page réalisation est demandée, l'api retourne le tableau de toutes les réalisations et la page affiche le titre et l'image principale.<br/> 
+- Lorsqu'une réalisation est demandée, le composant demande à l'api de lui renvoyer l'article correspondant à l'id passé dans l'url.<br/>
+Pour le moment, les articles sont écrits directement dans le fichier php, en attendant de les mettre dans une base de données. Prochainement, l'api sera renplacée par une version écrite sous Symfony. La transition sera invisible pour le site front-end.</p>
 
-<p>j'utilisais au départ une fonction onClick sur chaque lien qui affichait le composant demandé. J'ai rapidement remplacé cette méthode par un système de routage. Pour cela, j'ai installé "react-router-dom" et "react-router-hash-link".<br/>
-le composant route appelé par l'index, se compose d'un tableau.<br/>
- 
-A partir de ce tableau, j'ai créé un tableau de liens et un tableau de route. Ces tableaux sont passés en props au composant App losque celui ci est appelé. Ainsi, le tableau de liens va permettre à App d'afficher, sur toutes les pages, les liens de la navigation et les liens qui apparaissent au dessus du footer.<br/>
-Le tableau de route se présente comme ceci : <br/>
- 
-La ligne route signifie que lorque le path element.route (exemple : "/cv") apparait dans l'url, le composant element.composent est appelé (exemple : pour le path  "/cv", c'est le composent "cvPage" qui est appelé).<br/>
-Mais pour que cela fonctionne, il faut que l'url s'actualise à chaque clic d'un lien. Pour cela j'ai utilisé hashLink (Link) : <br/>
- 
-Lorqu'un id est mentionné dans l'url, le composant réalisations va chercher le bon article et l'affiche dans le render.</p>
-<h4>3.2 l'API</h4>
-<p>Pour ce site, j'ai crée une API en php  qui s'occupe de retourner les réalisations et les articles demandés.  Lorque la page réalisation est demandées, l'api retourne le tableau de toutes les réalisations et la page affiche le titre et l'image principale. Lorsqu'une réalisation est demandés, le composant demande à l'api de lui renvoyer l'article correspondant à l'id passé dans l'url.<br/>
-Pour le moment, les articles sont écrit directement dans le fichier php, en attendant de les mettre dans une base de données.</p>
 EOF;
 
 $articleRea = [
@@ -174,7 +179,7 @@ $articleRea = [
     ["id" => 1, "titre" => "Home Control",           "image" => "domotique",  "contenu" => $contenuHomeControl],
     ["id" => 2, "titre" => "Un site de randonnée",   "image" => "randonnee", "contenu" => $contenuRando],
 //    ["id" => 3, "titre" => "Ptitdej.fr",             "image" => "ptidej",    "contenu" => $contenuVide],
-    ["id" => 4, "titre" => "Pendu",                  "image" => "pendu",     "contenu" => $contenuPendu],
+    ["id" => 4, "titre" => "Pendu",                  "image" => "pendu",     "contenu" => $contenuPendu , "lien" => "https://github.com/mlle-fantasia/pendu", "lienNom" => "Dépo du jeu sur Github"],
 //    ["id" => 5, "titre" => "Quoicuisiner.fr",        "image" => "cuisiner",  "contenu" => $contenuVide],
 ];
 
