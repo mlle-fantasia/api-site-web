@@ -6,7 +6,7 @@ $listeImage = [];
 
 $images = [
     ["id" => 1, "id-article" => 1, "alt"=>"liste des fonctionnalités",                             "src"=>"/images/trello.png","width"=> 4, "height"=> 7,"caption" => "liste des fonctionnalités"],
-    ["id" => 2, "id-article" => 1, "alt"=>"architecture materiel du logiciel",                       "src"=>"/images/archi-materiel.png","width"=> 4, "height"=> 7,"caption" => "architecture materiel du logiciel"],
+    ["id" => 2, "id-article" => 1, "alt"=>"architecture materiel du logiciel",                       "src"=>"/images/archi-materiel.jpg","width"=> 4, "height"=> 7,"caption" => "architecture materiel du logiciel"],
     ["id" => 3, "id-article" => 1, "alt"=>"exemples de diagrammes de cas d'utilisation",             "src"=>"/images/diagramCasUtilisationexemples.jpg","width"=> 4, "height"=> 7,"caption" => "exemples de diagrammes de cas d'utilisation"],
     ["id" => 4, "id-article" => 1, "alt"=>"capture d'écran de la page choix de la Camera",          "src"=>"/images/pageChoixCamera.jpg",   "width"=> 4,          "height"=> 7, "caption" => "capture d'écran de la page choix de la Camera"],
     ["id" => 5, "id-article" => 1, "alt"=>"capture d'écran de la page camera",                      "src"=>"/images/pageCamera.jpg",         "width"=> 4,         "height"=> 8,"caption" => "capture d'écran de la page camera"],
