@@ -15,7 +15,7 @@ $contenuHomeControl = <<<EOF
 	<h4>2.1 Specifications</h4>
 	<p>Après avoir défini le nom, le logo et la charte graphique grâce à un brainstorming, nous avons défini les fonctionnalités au format user story cela nous a permis, dans un premier temps, de
 	 nous mettre d'accord sur le sujet et de définir les fonctionnalités à développer  par ordre d'importance (code couleur).</p>
-	 <p><strong>Voir image 1 de la galerie d'images ci-contre</strong></p>
+	 <h6>Voir image 1 de la galerie d'images ci-contre</h6>
 	<h4>2.2 Architecture</h4>
 	<p>Exceptés les équipements, chaque rectangle est une entité physique, le modem permet de connecter les différents appareils entre eux. Les équipements sont simulés dans le 
 	simulateur domotique.</p>
@@ -75,32 +75,36 @@ connexion à la base de données. j'ai égalemnt des fichiers php pour des morce
 	 membres du site, les commentaires...  <br/>
 	Grâce à Wamp, la base de données que j'ai utilisée est MySql  et pour y accéder, j'utilise HeidiSQL. </p>
 <h4>4.1 Quelques exemples de requêtes expliquées</h4>
-<h5>Page d'accueil, trier les randonnées par difficulté :</h5>
+<h5>Page d'accueil, fonction qui trie et affiche les randonnées par difficulté :</h5>
 <img src="/upload/images/fonctionRandoParDifficulté.jpg" alt="fonction trie des rando Par Difficulté"/>
 <h5>Explications :</h5>
-<p>-la fonction prend en paramètre la connexion à la base de données, une difficulté (facile, moyenne ou difficile : dans la bdd, chaque randonnée possède une colonne difficulté) 
-et un nombre d'élément qui est égal à 3.
+<p>- La fonction prend en paramètre la connexion à la base de données, une difficulté (facile, moyenne ou difficile : dans la bdd, chaque randonnée possède une colonne difficulté) 
+et un nombre d'élément qui est égal à 3.<br/>
 - j'applique la requête : sélectionner l'image et le "alt" dans la table photos_rando et tout dans la table randonnée_article<br/>
-- je fais une jointure entre les tables randonnée_article et photos_rando avec comme condition de jointure : id de l'article de la randonnée (dans randonnée_article) égal l'id de la photo (dans 
-photos_rando).
-- Ensuite, parmi les photos dont l'id correspond on ne veut que celle où la colonne est_principale égale 1<br/> 
+- Afin de récupérer une photo de chaque randonnée, je fais une jointure entre les tables randonnée_article et photos_rando avec comme condition de jointure : id de l'article de la randonnée (dans 
+randonnée_article) égal 
+l'id de la 
+photo (dans 
+photos_rando).<br/>
+- ensuite, parmi les photos dont l'id correspond on ne veut que celle où la colonne est_principale égale 1<br/> 
 - et on ne veut que les randonnées dont la difficulté est égale à la variable difficulté 
 passée en paramètre.<br/>
 - et on ne veut sélectionner que trois randonnées<br/>
-- et enfin on retourne le tableau de toutes les lignes récupérées.</p>
-<h5>Page blog, on veut afficher les articles sur le même thème à la fin de chaque article :</h5>
+- enfin on retourne le tableau de toutes les lignes récupérées.</p>
+<h5>Page blog, fonction qui affiche les titres des articles sur le même thème à la fin de chaque article :</h5>
 <img src="/upload/images/fonctionArticleMemeTheme.jpg" alt="fonction trie des rando Par Difficulté"/>
-<h5>- Explications : </h5>
+<h5>Explications : </h5>
 <p>Ceci est une requête imbriquée.<br/>
 - la fonction prend en paramètre la connexion à la base de données et l'id de l'article en cours.<br/>
 - dans les parenthèses les plus au centre de la requête, on sélectionne le ou les thèmes de l'article en cours.<br/>
 - dans les premières parenthèses, on sélectionne l'id des articles qui ont pour thème celui (ou ceux) récupéré dans les parenthèses du centre sauf l'id de l'article en cours.<br/>
-puisqu'il est possible qu'un article apparaisse plusieurs fois s'il a plusieurs thèmes en commun, on group by l'id des articles et on compte le nombre de ligne pour chaque id.<br/>
-de là on récupère une table qu'on appellera t qui contient deux colonnes : l'id des articles récupérés et le nombre de ligne.<br/>
-- on fait une jointure entre cette table t et la table qui contient tous les articles et on récupère les titres des articles<br/>
-- puis on les range dans l'ordre : en premier ceux qui ont dans la colonne nombre un chiffre plus important (c'est-à-dire ceux qui ont le plus de thèmes en commun)<br/>
-- puis on affiche en premier ceux qui ont un id plus élevé (c'est-à-dire ceux qui sont parus en dernier)<br/>
-- et enfin on en affiche que quatre maximums.</p>
+- puisqu'il est possible qu'un article apparaisse plusieurs fois s'il a plusieurs thèmes en commun, on group by l'id des articles et on compte le nombre de ligne pour chaque id.<br/>
+- on alias cette sous requête t pour qu'elle fonctionne comme une table, elle contient deux colonnes : l'id des articles récupérés et le nombre de thème en comnun.<br/>
+- puis on fait une jointure entre t et la table qui contient tous les articles pour récupèrer les titres des articles dont l'id correspond à ceux trouvés dans la sous requête.<br/>
+- ensuite, on les range dans l'ordre : en premier ceux qui ont dans la colonne nombre un chiffre plus important (c'est-à-dire ceux qui ont le plus de thèmes en commun)<br/>
+- puis on affiche en premier ceux qui ont un id plus élevé (ce qui correspond généralement à une date de parution plus récente, mais il serait plus juste de remplacer ce tri par id, par un tri par 
+date)<br/>
+- enfin on affiche que quatre titres maximums.</p>
 EOF;
 
 $contenuPendu = <<<EOF
@@ -154,14 +158,16 @@ rapidement. <br/>
 Les couleurs sont celles que j'avais choisies pour mon auto-entreprise : Mlle Fantasia. Le vert turquoise est une couleur encore à la mode et qui connote de l'univers du numérique. L'image de fond
  sur la page d'accueil (pour les écrans de plus de 768 pixels) à une vocation humoristique. Cet effet est rendu par le contraste entre ce que l'on voit et ce que l'on lit.</p> 
 <h3>La technique</h3>
-<h4>le routage?</h4>
+<h4>le routage</h4>
 <p>J'utilisais au départ une fonction onClick sur chaque lien qui affichait le composant demandé. C'était une solution temporaire pour tester le site avant de me pencher sur le routage. Pour le routage, j'ai installé "react-router-dom" et "react-router-hash-link" ("react-router-hash-link" est utile pour gérer les "#" dans l'url.  Ces derniers servent à nous amèner, à chaque fois, en haut de la page) .<br/>
 Je vais décrire ici le composant "route",le premier composant de l'application qui s'occupe d'initier les différentes routes. Sa fonction render se présente comme ceci : <br/>
  <img src="/upload/images/Capture4.PNG" alt="code du composant route"/>
-explications :<br/> 
-J'ai créé le tableau LIENS qui liste toutes les routes possibles, quelles soit stricte (comme la première ligne) ou dynamique (comme la troisième ligne : ".realisations/:id" où l'"id" est une variable qui correspond à un article en particulier). Ce tableau me permet également de générer le menu de navigation.<br/> 
-A partir de ce tableau, je dois donc extraire les noms à afficher dans la barre de navigation. Dans celle-ci je veux faire apparaitre seulement "cv", "réalisations" et "contact". J'ai donc créé un autre tableau (appelé liensNavigation)qui filtre le premier. En effet, la fonction filter fait un tri dans un tableau et ne retourne que les lignes qui nous intéressent. Ici celles où l'option link égal true.<br/>
-j'ai ensuite créé un tableau de routes qui permettra d'appeler le composant de la page demandée. Ici j'ai utilisé la fonction map. En effet, à la différence de filter, map ne trie pas le tableau, elle utilise chaque ligne.
+<h5>Explications :</h5><br/> 
+<p>J'ai créé le tableau LIENS qui liste toutes les routes possibles, quelles soit stricte (comme la première ligne) ou dynamique (comme la troisième ligne : ".realisations/:id" où l'"id" est une 
+variable qui correspond à un article en particulier). Ce tableau me permet également de générer le menu de navigation.<br/> 
+A partir de ce tableau, je dois donc extraire les noms à afficher dans la barre de navigation. Dans celle-ci je veux faire apparaitre seulement "cv", "réalisations" et "contact". J'ai donc créé un 
+autre tableau (appelé liensNavigation) qui filtre le premier. En effet, la fonction filter fait un tri dans un tableau et ne retourne que les lignes qui nous intéressent. Ici celles où l'option link égal true.<br/>
+j'ai ensuite créé un tableau de routes qui permettra d'appeler le composant de la page demandée. Ici j'ai utilisé la fonction map. En effet, à la différence de filter, map ne trie pas le tableau, elle utilise chaque ligne.<br/>
 La ligne route signifie que lorsque le path element.route (exemple : "/cv") apparait dans l'url, le composant element.component est appelé et rendu dans le navigateur (exemple : pour l'url "/cv", c'est le composent "cvPage" qui est appelé et rendu).<br/>
 Ces tableaux sont passés en props au composant App lorsque celui-ci est appelé. C'est App qui s'occupera du rendu des pages. J'expliquerai plus tard le composant "Provider"<br/>
 le composant "route" sert simplement à modifier le rendu de la page en fonction de l'url, maintenant, il faut quelque chose qui va modifier l'url à chaque clic d'un lien. Pour cela j' ai utilisé hashLink (Link). Pour chaque lien, je défini ce qui doit s'afficher dans l'url. <br/>
@@ -171,7 +177,6 @@ Lorsqu'un id est mentionné dans l'url, le composant "réalisations" effectue un
 - Lorsque la page réalisation est demandée, l'api retourne le tableau de toutes les réalisations et la page affiche le titre et l'image principale.<br/> 
 - Lorsqu'une réalisation est demandée, le composant demande à l'api de lui renvoyer l'article correspondant à l'id passé dans l'url.<br/>
 Pour le moment, les articles sont écrits directement dans le fichier php, en attendant de les mettre dans une base de données. Prochainement, l'api sera renplacée par une version écrite sous Symfony. La transition sera invisible pour le site front-end.</p>
-
 EOF;
 
 $articleRea = [
@@ -179,7 +184,7 @@ $articleRea = [
     ["id" => 1, "titre" => "Home Control",           "image" => "domotique",  "contenu" => $contenuHomeControl],
     ["id" => 2, "titre" => "Un site de randonnée",   "image" => "randonnee", "contenu" => $contenuRando],
 //    ["id" => 3, "titre" => "Ptitdej.fr",             "image" => "ptidej",    "contenu" => $contenuVide],
-    ["id" => 4, "titre" => "Pendu",                  "image" => "pendu",     "contenu" => $contenuPendu , "lien" => "https://github.com/mlle-fantasia/pendu", "lienNom" => "Dépo du jeu sur Github"],
+    ["id" => 4, "titre" => "Pendu",                  "image" => "pendu",     "contenu" => $contenuPendu , "lien" => "https://github.com/mlle-fantasia/pendu", "lienNom" => "Dépôt du jeu sur Github"],
 //    ["id" => 5, "titre" => "Quoicuisiner.fr",        "image" => "cuisiner",  "contenu" => $contenuVide],
 ];
 
