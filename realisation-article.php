@@ -184,19 +184,19 @@ Pour le moment, les articles sont écrits directement dans le fichier php, en at
  La transition sera invisible pour le site front-end.</p>
 EOF;
 $contenuPtitDej = <<<EOF
-<h4>Le concept</h4>
+<h3>Le concept</h3>
 <p>l'idée de ce site est de mettre en relation les entreprises qui souhaitent organiser un petit-déjeuner de travail et les organisateurs d'évènements ou les boulangeries. En effet, organiser ce genre
  d'évènement est intéressant mais, peut prendre du temps. </p>
-<h4>La technique</h4>
+<h3>La technique</h3>
 <p>PtitDej.fr est une landing page au format one-page. J'ai réalisé ce site en html, css et bootstrap pour l'intégration, php et sql pour sauvegarder les renseignements des entreprises dans une 
 base de données.</p>
-<h4>Le design</h4>
-	<h3>Qu'est ce qu'une landing page et une one-page?</h3>
+<h3>Le design</h3>
+	<h4>Qu'est ce qu'une landing page et une one-page?</h4>
 <p>Une landing page est une page/un site web qui vise un objectif unique. Elles sont souvent utilisées en marketing pour réaliser une campagne et promouvoir un service ou un produit spécifique. 
 Elles sont couplées avec des boutons Call-To-Action (CTA) permettant de vendre / récupérer des informations pour vendre le produit/le service ultérieurement. <br/>
 Les landing pages sont souvent des sites one page afin de ne pas égarer le prospect et d'optimiser son taux de conversion (le rapport entre le nombre de clients obtenus et le nombre total de 
 visiteurs). Les sites one pages sont des pages découpées en différentes sections, l'une à la suite de l'autre, accessibles en scrollant (vers le bas ou sur le côté).</p>
-	<h3>Ptitdej.fr </h3>
+	<h4>Ptitdej.fr </h4>
 <p>Ce site vise à obtenir des contacts afin de vendre un service.<br/>
  Il cible les professionnels qui veulent organiser un petit-déjeuner mais aussi les prestataires de petit-déjeuner (tels que les organisateurs d'événements, les boulangeries...). Le site doit être 
  clair et concis : <br/>
@@ -210,7 +210,7 @@ visiteurs). Les sites one pages sont des pages découpées en différentes secti
 - Enfin le footer comporte quelques liens.<br/>
 En ce qui concerne le design général : le site est propre, sur un fond blanc et rapide à lire et à comprendre. Les couleurs sont des couleurs chaudes qui donnent faim et les images de café et de thé
  sont également là pour donner envie.</p>
-	<h3>Les boutons CTA </h3>
+	<h4>Les boutons CTA </h4>
 <p>Le but d’un bouton  CTA, ou call-to-action,  est d’inciter les visiteurs à effectuer une action précise par le clic du bouton. Cela peut être "s'inscrire", "réserver", "commander"...<br/>
 L'optimisation des boutons CTA est un élément clé pour augmenter le taux de conversion. Les boutons doivent être très visibles, attractifs, ils doivent donner, au visiteur, l'envie de cliquer. 
 La taille, la couleur, la police, la forme, le texte et l'emplacement sont importants.<br/>
