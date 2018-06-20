@@ -42,7 +42,7 @@ $contenuRando = <<<EOF
 <h4>Contexte</h4>
 	<p>Lorsque j'ai commencé mon apprentissage du développement j'ai suivi des cours sur Internet et il me fallait un support concret pour m'entraîner j'ai donc créé un site Internet. J'ai essayé de 
 	le faire le plus complet possible pour y inclure toutes mes connaissances. J'ai choisi le thème par affinité : un site de randonnées<br/>
-    Le site n'est pas en ligne, il n'est pas terminé.</p>
+    Le site n'est pas en ligne, il n'est pas terminé. Objectif à court terme : le refaire sous symfony.</p>
 <h4>Objectifs</h4>
 	<p>Créer un site complet qui inclut :<br/>
 - un article sur chaque randonnée avec description, photos et parcours GPS téléchargeable ainsi que des commentaires,<br/>
@@ -157,17 +157,21 @@ Les couleurs sont celles que j'avais choisies pour mon auto-entreprise : Mlle Fa
  sur la page d'accueil (pour les écrans de plus de 768 pixels) à une vocation humoristique. Cet effet est rendu par le contraste entre ce que l'on voit et ce que l'on lit.</p> 
 <h3>La technique</h3>
 <h4>Le routage</h4>
-<p>J'utilisais au départ une fonction onClick sur chaque lien qui affichait le composant demandé. C'était une solution temporaire pour tester le site avant de me pencher sur le routage. Pour le routage, j'ai installé "react-router-dom" et "react-router-hash-link" ("react-router-hash-link" est utile pour gérer les "#" dans l'url.  Ces derniers servent à nous amèner, à chaque fois, en haut de la page) .<br/>
+<p>J'utilisais au départ une fonction onClick sur chaque lien qui affichait le composant demandé. C'était une solution temporaire pour tester le site avant de me pencher sur le routage. Pour le 
+routage, j'ai installé "react-router-dom" et "react-router-hash-link" ("react-router-hash-link" est utile pour gérer les "#" dans l'url.  Ces derniers servent à nous amèner, à chaque fois, en haut
+ de la page) .<br/>
 Je vais décrire ici le composant "route",le premier composant de l'application qui s'occupe d'initier les différentes routes. Sa fonction render se présente comme ceci : <br/>
  <img src="/upload/images/Capture4.PNG" alt="code du composant route"/>
 <h5>Explications :</h5><br/> 
 <p>J'ai créé le tableau LIENS qui liste toutes les routes possibles, quelles soit stricte (comme la première ligne) ou dynamique (comme la troisième ligne : ".realisations/:id" où l'"id" est une 
 variable qui correspond à un article en particulier). Ce tableau me permet également de générer le menu de navigation.<br/> 
 A partir de ce tableau, je dois donc extraire les noms à afficher dans la barre de navigation. Dans celle-ci je veux faire apparaitre seulement "cv", "réalisations" et "contact". J'ai donc créé un 
-autre tableau (appelé liensNavigation) qui filtre le premier. En effet, la fonction filter fait un tri dans un tableau et ne retourne que les lignes qui nous intéressent. Ici celles où l'option link égal true.<br/>
+autre tableau (appelé liensNavigation) qui filtre le premier. En effet, la fonction filter fait un tri dans un tableau et ne retourne que les lignes qui nous intéressent. Ici celles où l'option link 
+égal true.<br/>
 J'ai ensuite créé un tableau de routes qui permettra d'appeler le composant de la page demandée. Ici j'ai utilisé la fonction map. En effet, à la différence de filter, map ne trie pas le tableau, 
 elle utilise chaque ligne.<br/>
-La ligne route signifie que lorsque le path element.route (exemple : "/cv") apparait dans l'url, le composant element.component est appelé et rendu dans le navigateur (exemple : pour l'url "/cv", c'est le composent "cvPage" qui est appelé et rendu).<br/>
+La ligne route signifie que lorsque le path element.route (exemple : "/cv") apparait dans l'url, le composant element.component est appelé et rendu dans le navigateur (exemple : pour l'url "/cv",
+ c'est le composent "cvPage" qui est appelé et rendu).<br/>
 Ces tableaux sont passés en props au composant App lorsque celui-ci est appelé. C'est App qui s'occupera du rendu des pages. J'expliquerai plus tard le composant "Provider".<br/>
 Le composant "route" sert simplement à modifier le rendu de la page en fonction de l'url, maintenant, il faut quelque chose qui va modifier l'url à chaque clic d'un lien. Pour cela j' ai utilisé 
 hashLink (Link). Pour chaque lien, je défini ce qui doit s'afficher dans l'url. <br/>
@@ -176,14 +180,50 @@ Lorsqu'un id est mentionné dans l'url, le composant "réalisations" effectue un
 <p>Pour ce site, j'ai créé une API en php  qui s'occupe de retourner les réalisations et les articles demandés :  <br/>
 - Lorsque la page réalisation est demandée, l'api retourne le tableau de toutes les réalisations et la page affiche le titre et l'image principale.<br/> 
 - Lorsqu'une réalisation est demandée, le composant demande à l'api de lui renvoyer l'article correspondant à l'id passé dans l'url.<br/>
-Pour le moment, les articles sont écrits directement dans le fichier php, en attendant de les mettre dans une base de données. Prochainement, l'api sera renplacée par une version écrite sous Symfony. La transition sera invisible pour le site front-end.</p>
+Pour le moment, les articles sont écrits directement dans le fichier php, en attendant de les mettre dans une base de données. Prochainement, l'api sera renplacée par une version écrite sous Symfony.
+ La transition sera invisible pour le site front-end.</p>
 EOF;
-
+$contenuPtitDej = <<<EOF
+<h4>Le concept</h4>
+<p>l'idée de ce site est de mettre en relation les entreprises qui souhaitent organiser un petit-déjeuner de travail et les organisateurs d'évènements ou les boulangeries. En effet, organiser ce genre
+ d'évènement est intéressant mais, peut prendre du temps. </p>
+<h4>La technique</h4>
+<p>PtitDej.fr est une landing page au format one-page. J'ai réalisé ce site en html, css et bootstrap pour l'intégration, php et sql pour sauvegarder les renseignements des entreprises dans une 
+base de données.</p>
+<h4>Le design</h4>
+	<h3>Qu'est ce qu'une landing page et une one-page?</h3>
+<p>Une landing page est une page/un site web qui vise un objectif unique. Elles sont souvent utilisées en marketing pour réaliser une campagne et promouvoir un service ou un produit spécifique. 
+Elles sont couplées avec des boutons Call-To-Action (CTA) permettant de vendre / récupérer des informations pour vendre le produit/le service ultérieurement. <br/>
+Les landing pages sont souvent des sites one page afin de ne pas égarer le prospect et d'optimiser son taux de conversion (le rapport entre le nombre de clients obtenus et le nombre total de 
+visiteurs). Les sites one pages sont des pages découpées en différentes sections, l'une à la suite de l'autre, accessibles en scrollant (vers le bas ou sur le côté).</p>
+	<h3>Ptitdej.fr </h3>
+<p>Ce site vise à obtenir des contacts afin de vendre un service.<br/>
+ Il cible les professionnels qui veulent organiser un petit-déjeuner mais aussi les prestataires de petit-déjeuner (tels que les organisateurs d'événements, les boulangeries...). Le site doit être 
+ clair et concis : <br/>
+- Première partie : présentation du concept sur une belle image de fond qui aide l'utilisateur à se mettre en situation. On y  trouve aussi les deux boutons CTA (Call-To-Action) pour lesquels le site
+ a été conçu. <br/>
+- La partie suivante présente les avantages d'utiliser le site de manière très rapide. Lire les titres suffi à être convaincu.<br/>
+- Le bandeau suivant est un rappel du bouton cta pour les entreprises.<br/>
+- Ensuite vient une partie qui explique de manière plus précise la démarche du site.<br/>
+- Le bandeau suivant est un rappel du bouton cta pour les prestaitaires.<br/>
+- Puis on trouve les commentaires des utilisateurs précedents qui assurent de la notoriété du site et rasurent les prospects.<br/>
+- Enfin le footer comporte quelques liens.<br/>
+En ce qui concerne le design général : le site est propre, sur un fond blanc et rapide à lire et à comprendre. Les couleurs sont des couleurs chaudes qui donnent faim et les images de café et de thé
+ sont également là pour donner envie.</p>
+	<h3>Les boutons CTA </h3>
+<p>Le but d’un bouton  CTA, ou call-to-action,  est d’inciter les visiteurs à effectuer une action précise par le clic du bouton. Cela peut être "s'inscrire", "réserver", "commander"...<br/>
+L'optimisation des boutons CTA est un élément clé pour augmenter le taux de conversion. Les boutons doivent être très visibles, attractifs, ils doivent donner, au visiteur, l'envie de cliquer. 
+La taille, la couleur, la police, la forme, le texte et l'emplacement sont importants.<br/>
+Il est conseillé d'A/B tester les boutons CTA afin de trouver quelle couleur, quel texte, quelle forme... remporte de plus de clic. Le principe est de réaliser différentes versions du site en 
+optimisant un point à la fois. Ensuite, on proposer une version à la moitié des visiteurs et l'autre version à l'autre moitié des visiteurs. A partir de là, on verra quel site a un meilleur taux de 
+conversion Les boutons CTA de petitdej amènent sur une page de formulaire. Le formulaire est différent pour les entreprises et les prestataires. Ils doivent renseigner leur identité et soit leur 
+demande de petit-déjeuner (pour les entreprises) soit leurs offres de petit-déjeuner (pour les prestataires).</p>
+EOF;
 $articleRea = [
     ["id" => 6, "titre" => "Site personnel",         "image" => "sitePerso",     "contenu" => $contenuSitePerso],
     ["id" => 1, "titre" => "Home Control",           "image" => "domotique",  "contenu" => $contenuHomeControl],
     ["id" => 2, "titre" => "Un site de randonnée",   "image" => "randonnee", "contenu" => $contenuRando],
-//    ["id" => 3, "titre" => "Ptitdej.fr",             "image" => "ptidej",    "contenu" => $contenuVide],
+    ["id" => 3, "titre" => "Ptitdej.fr",             "image" => "ptidej",    "contenu" => $contenuPtitDej],
     ["id" => 4, "titre" => "Pendu",                  "image" => "pendu",     "contenu" => $contenuPendu , "lien" => "https://github.com/mlle-fantasia/pendu", "lienNom" => "Dépôt du jeu sur Github"],
 //    ["id" => 5, "titre" => "Quoicuisiner.fr",        "image" => "cuisiner",  "contenu" => $contenuVide],
 ];
