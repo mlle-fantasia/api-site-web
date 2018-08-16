@@ -42,7 +42,7 @@ $contenuRando = <<<EOF
 <h4>Contexte</h4>
 	<p>Lorsque j'ai commencé mon apprentissage du développement j'ai suivi des cours sur Internet et il me fallait un support concret pour m'entraîner j'ai donc créé un site Internet. J'ai essayé de 
 	le faire le plus complet possible pour y inclure toutes mes connaissances. J'ai choisi le thème par affinité : un site de randonnées<br/>
-    Le site n'est pas en ligne, il n'est pas terminé. Objectif à court terme : le migrer sous symfony, je travaille actuellement dessus.</p>
+    Le site n'est pas en ligne, il n'est pas terminé. Objectif à court terme : le migrer sous symfony.</p>
 <h4>Objectifs</h4>
 	<p>Créer un site complet qui inclut :<br/>
 - un article sur chaque randonnée avec description, photos et parcours GPS téléchargeable ainsi que des commentaires,<br/>
@@ -135,7 +135,7 @@ le mot à deviner (qui est généré dès l'ouverture de la page), un tableau de
 	local à son état d'origine (tableau vide, nombre d'essais à 0, nouveau mot généré...).<br/>
 	Pour le rendu des boutons des lettres déjà cliquées, la fonction "getEtat" est appelée. Celle-ci vérifie si la lettre est dans le tableau de lettres déjà cliquées grâce à la fonction "indexOf". 
 	Selon si c'est oui ou non, l'apparence du bouton est modifiée grâce à une classe css.</p>
-<h4>Actuellement </h4>
+<h4>Suite </h4>
 <p>Une fois que le TP a été réalisé comme demandé dans les consignes, je me suis occupée de l'améliorer un peu. J'ai tout d'abord réalisé le dessin du pendu avec react-konva puis je me suis 
 attaquée à la gestion de la difficulté (cette partie n'est pas totalement terminée).</p>
 EOF;
