@@ -42,7 +42,7 @@ $contenuRando = <<<EOF
 <h4>Contexte</h4>
 	<p>Lorsque j'ai commencé mon apprentissage du développement j'ai suivi des cours sur Internet et il me fallait un support concret pour m'entraîner j'ai donc créé un site Internet. J'ai essayé de 
 	le faire le plus complet possible pour y inclure toutes mes connaissances. J'ai choisi le thème par affinité : un site de randonnées<br/>
-    Le site n'est pas en ligne, il n'est pas terminé. Objectif à court terme : le refaire sous symfony.</p>
+    Le site n'est pas en ligne, il n'est pas terminé. Objectif à court terme : le migrer sous symfony, je travaille actuellement dessus.</p>
 <h4>Objectifs</h4>
 	<p>Créer un site complet qui inclut :<br/>
 - un article sur chaque randonnée avec description, photos et parcours GPS téléchargeable ainsi que des commentaires,<br/>
@@ -130,11 +130,14 @@ le mot à deviner (qui est généré dès l'ouverture de la page), un tableau de
 - la lettre est ajoutée au tableau de lettres déjà cliquées,<br/>
 - le tableau est transmis à la fonction qui s'occupe d'afficher le masque du mot<br/>
 - et enfin elle teste si le masque du mot est égal au mot, si oui elle met à jour la variable "gagné" à vrai. </p>
-<h4>Le rendu : </h4>
+<h4>Le rendu </h4>
 	<p>Si la variable "gagné" est à faux, on map les boutons des lettres de l'alphabet sinon, on affiche un bouton "redémarrer". Lorsqu'il est cliqué, cela appelle une fonction qui remet l'état 
 	local à son état d'origine (tableau vide, nombre d'essais à 0, nouveau mot généré...).<br/>
 	Pour le rendu des boutons des lettres déjà cliquées, la fonction "getEtat" est appelée. Celle-ci vérifie si la lettre est dans le tableau de lettres déjà cliquées grâce à la fonction "indexOf". 
 	Selon si c'est oui ou non, l'apparence du bouton est modifiée grâce à une classe css.</p>
+<h4>Actuellement </h4>
+<p>Une fois que le TP a été réalisé comme demandé dans les consignes, je me suis occupée de l'améliorer un peu. J'ai tout d'abord réalisé le dessin du pendu avec react-konva puis je me suis 
+attaquée à la gestion de la difficulté (cette partie n'est pas totalement terminée).</p>
 EOF;
 $contenuVide = <<<EOF
 <h4>Article en cours d'écriture</h4>
@@ -160,7 +163,7 @@ Les couleurs sont celles que j'avais choisies pour mon auto-entreprise : Mlle Fa
 <p>J'utilisais au départ une fonction onClick sur chaque lien qui affichait le composant demandé. C'était une solution temporaire pour tester le site avant de me pencher sur le routage. Pour le 
 routage, j'ai installé "react-router-dom" et "react-router-hash-link" ("react-router-hash-link" est utile pour gérer les "#" dans l'url.  Ces derniers servent à nous amèner, à chaque fois, en haut
  de la page) .<br/>
-Je vais décrire ici le composant "route",le premier composant de l'application qui s'occupe d'initier les différentes routes. Sa fonction render se présente comme ceci : <br/>
+Je vais décrire ici le composant "route", le premier composant de l'application qui s'occupe d'initier les différentes routes. Sa fonction render se présente comme ceci : <br/>
  <img src="/upload/images/Capture4.PNG" alt="code du composant route"/>
 <h5>Explications :</h5><br/> 
 <p>J'ai créé le tableau LIENS qui liste toutes les routes possibles, quelles soit stricte (comme la première ligne) ou dynamique (comme la troisième ligne : ".realisations/:id" où l'"id" est une 
@@ -189,7 +192,7 @@ $contenuPtitDej = <<<EOF
  d'évènement est intéressant mais, peut prendre du temps. </p>
 <h3>La technique</h3>
 <p>PtitDej.fr est une landing page au format one-page. J'ai réalisé ce site en html, css et bootstrap pour l'intégration, php et sql pour sauvegarder les renseignements des entreprises dans une 
-base de données.</p>
+base de données. Je suis actuellement en train de migrer ptitdej sous Symfony.</p>
 <h3>Le design</h3>
 	<h4>Qu'est ce qu'une landing page et une one-page?</h4>
 <p>Une landing page est une page/un site web qui vise un objectif unique. Elles sont souvent utilisées en marketing pour réaliser une campagne et promouvoir un service ou un produit spécifique. 
@@ -223,7 +226,7 @@ $articleRea = [
     ["id" => 6, "titre" => "Site personnel",         "image" => "sitePerso",     "contenu" => $contenuSitePerso],
     ["id" => 1, "titre" => "Home Control",           "image" => "domotique",  "contenu" => $contenuHomeControl],
     ["id" => 2, "titre" => "Un site de randonnée",   "image" => "randonnee", "contenu" => $contenuRando],
-    ["id" => 3, "titre" => "Ptitdej.fr",             "image" => "ptidej",    "contenu" => $contenuPtitDej],
+    ["id" => 3, "titre" => "Ptitdej.fr",             "image" => "ptidej",    "contenu" => $contenuPtitDej,"lien" => "https://github.com/mlle-fantasia/ptitdej.fr", "lienNom" => "Dépôt du site sur Github"],
     ["id" => 4, "titre" => "Pendu",                  "image" => "pendu",     "contenu" => $contenuPendu , "lien" => "https://github.com/mlle-fantasia/pendu", "lienNom" => "Dépôt du jeu sur Github"],
 //    ["id" => 5, "titre" => "Quoicuisiner.fr",        "image" => "cuisiner",  "contenu" => $contenuVide],
 ];
