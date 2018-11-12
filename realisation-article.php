@@ -69,7 +69,8 @@ $contenuRando = <<<EOF
 	 - Enfin le pied de page se compose d'un formulaire d'inscription à la newsletter. Très simple, seule l'adresse mail est à renseigner. Puis quelques liens utiles.</p>
 <h3>Architecture </h3>
 <p>Pour un premier projet, je n'ai pas utilisé la programmation orientée objet. J'ai un fichier php par page du site qui inclut le fichier fonction.php et le fichier bdd.php. Ce dernier génère la 
-connexion à la base de données. j'ai également des fichiers php pour des morceaux de page que j'utilise plusieurs fois dans le site.</p>
+connexion à la base de données. j'ai également des fichiers php pour des morceaux de page que j'utilise plusieurs fois dans le site. Dans le fichier fonction.php, se trouvent les fonctions de 
+validation des données et les fonctions d'enregistrement et de récupération des données en BDD.</p>
 <h3>Base de données</h3>
 	<p>C'est avec ce site que j'ai découvert les bases de données et le language SQL. En effet il faut stocker tous les articles de randonnées mais aussi les articles de blog, les clubs de randonnées,
 	 les
@@ -223,11 +224,11 @@ conversion Les boutons CTA de petitdej amènent sur une page de formulaire. Le f
 demande de petit-déjeuner (pour les entreprises) soit leurs offres de petit-déjeuner (pour les prestataires).</p>
 EOF;
 $articleRea = [
-    ["id" => 6, "titre" => "Site personnel",         "image" => "sitePerso",     "contenu" => $contenuSitePerso],
-    ["id" => 1, "titre" => "Home Control",           "image" => "domotique",  "contenu" => $contenuHomeControl],
-    ["id" => 2, "titre" => "Un site de randonnée",   "image" => "randonnee", "contenu" => $contenuRando],
-    ["id" => 3, "titre" => "Ptitdej.fr",             "image" => "ptidej",    "contenu" => $contenuPtitDej,"lien" => "https://github.com/mlle-fantasia/ptitdej.fr", "lienNom" => "Dépôt du site sur Github"],
-    ["id" => 4, "titre" => "Pendu",                  "image" => "pendu",     "contenu" => $contenuPendu , "lien" => "https://github.com/mlle-fantasia/pendu", "lienNom" => "Dépôt du jeu sur Github"],
+    ["id" => 6, "titre" => "Site personnel (React.js)",         "image" => "sitePerso",     "contenu" => $contenuSitePerso],
+    ["id" => 1, "titre" => "Home Control (html/css/bootstrap/java/php/js/jquery)",           "image" => "domotique",  "contenu" => $contenuHomeControl],
+    ["id" => 2, "titre" => "Un site de randonnée (html/css/bootstrap/php)",   "image" => "randonnee", "contenu" => $contenuRando],
+    ["id" => 3, "titre" => "Ptitdej.fr (html/css/bootstrap/php)",             "image" => "ptidej",    "contenu" => $contenuPtitDej,"lien" => "https://github.com/mlle-fantasia/ptitdej.fr", "lienNom" => "Dépôt du site sur Github"],
+    ["id" => 4, "titre" => "Pendu (React.js)",                  "image" => "pendu",     "contenu" => $contenuPendu , "lien" => "https://github.com/mlle-fantasia/pendu", "lienNom" => "Dépôt du jeu sur Github"],
 //    ["id" => 5, "titre" => "Quoicuisiner.fr",        "image" => "cuisiner",  "contenu" => $contenuVide],
 ];
 
