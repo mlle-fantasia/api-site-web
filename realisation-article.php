@@ -224,11 +224,11 @@ conversion Les boutons CTA de petitdej amènent sur une page de formulaire. Le f
 demande de petit-déjeuner (pour les entreprises) soit leurs offres de petit-déjeuner (pour les prestataires).</p>
 EOF;
 $articleRea = [
-    ["id" => 6, "titre" => "Site personnel (React.js)",         "image" => "sitePerso",     "contenu" => $contenuSitePerso],
-    ["id" => 1, "titre" => "Home Control (html/css/bootstrap/java/php/js/jquery)",           "image" => "domotique",  "contenu" => $contenuHomeControl],
-    ["id" => 2, "titre" => "Un site de randonnée (html/css/bootstrap/php)",   "image" => "randonnee", "contenu" => $contenuRando],
-    ["id" => 3, "titre" => "Ptitdej.fr (html/css/bootstrap/php)",             "image" => "ptidej",    "contenu" => $contenuPtitDej,"lien" => "https://github.com/mlle-fantasia/ptitdej.fr", "lienNom" => "Dépôt du site sur Github"],
-    ["id" => 4, "titre" => "Pendu (React.js)",                  "image" => "pendu",     "contenu" => $contenuPendu , "lien" => "https://github.com/mlle-fantasia/pendu", "lienNom" => "Dépôt du jeu sur Github"],
+    ["id" => 6, "titre" => "Site personnel", "titreLangages" => "Site personnel (React.js)",       "image" => "sitePerso",     "contenu" => $contenuSitePerso],
+    ["id" => 1, "titre" => "Home Control",   "titreLangages" => "Home Control (html/css/bootstrap/java/php/js/jquery)",        "image" => "domotique",  "contenu" => $contenuHomeControl],
+    ["id" => 2, "titre" => "Un site de randonnée", "titreLangages" => "Un site de randonnée (html/css/bootstrap/php)",  "image" => "randonnee", "contenu" => $contenuRando],
+    ["id" => 3, "titre" => "Ptitdej.fr",   "titreLangages" => "Ptitdej.fr (html/css/bootstrap/php)",          "image" => "ptidej",    "contenu" => $contenuPtitDej,"lien" => "https://github.com/mlle-fantasia/ptitdej.fr", "lienNom" => "Dépôt du site sur Github"],
+    ["id" => 4, "titre" => "Pendu",   "titreLangages" => "Pendu (React.js)",               "image" => "pendu",     "contenu" => $contenuPendu , "lien" => "https://github.com/mlle-fantasia/pendu", "lienNom" => "Dépôt du jeu sur Github"],
 //    ["id" => 5, "titre" => "Quoicuisiner.fr",        "image" => "cuisiner",  "contenu" => $contenuVide],
 ];
 
