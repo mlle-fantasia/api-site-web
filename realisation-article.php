@@ -2,6 +2,10 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json');
 $auteur = '<br/>auteur : Marina Front<br/>';
+$resumeHomeControl = <<<EOF
+Ce projet a été réalisé, en groupe, dans le cadre de la formation Développement et Administration Système d'Information Expert 2018.
+L'objectif du projet était de développer une application Androïd et une application Web permettant de piloter différents équipements d'un domicile.
+EOF;
 $contenuHomeControl = <<<EOF
     <h3>Présentation du projet</h3>
 	<p>Ce projet a été réalisé dans le cadre de la formation Développement et Administration Système d'Information Expert 2018 (Greta du Var). C'est un projet que nous avons réalisé en 2 mois en 
@@ -36,6 +40,9 @@ avons utilisé HTML CSS Bootstrap et jQuery .</p>
 	<p>En terme d’expérience, grâce à ce projet, j'ai pu avoir une vision du développement d’un projet du début jusqu'à la livraison et découvrir les avantages et les limites du travail en 
 	équipe.<br/>
 	Grâce au respect de la méthode agile nous avons livré un projet basique mais fonctionnel qui mériterait d'être approfondi par le développement de fonctionnalités supplémentaires.</p>
+EOF;
+$resumeRando = <<<EOF
+Site de randonnées réalisé avec php, sql, html, css et bootstrap support de ma formation autodidact.
 EOF;
 $contenuRando = <<<EOF
    <h3>Présentation</h3>
@@ -105,7 +112,9 @@ passée en paramètre.<br/>
 date).<br/>
 - Enfin on affiche que quatre titres maximums.</p>
 EOF;
-
+$resumePendu = <<<EOF
+Deux applications du jeu du pendu. L'une en reactJs, l'autre en Angular 6. Dans cet article, j'explique quelques points techniques et je compare l'utilisation des deux technologies.
+EOF;
 $contenuPendu = <<<EOF
 <p>Ce projet est un TP que j'ai réalisé pour le cours sur Réact Sur OpenClassroom</p>
 <h3>Extrait des consignes du TP : </h3>
@@ -142,6 +151,9 @@ attaquée à la gestion de la difficulté (cette partie n'est pas totalement ter
 EOF;
 $contenuVide = <<<EOF
 <h4>Article en cours d'écriture</h4>
+EOF;
+$resumeSitePerso = <<<EOF
+Site sur lequel vous êtes en train de naviguer. Il me présente et présente quelques une de mes réalisations. Site réalisé avec ReactJS.
 EOF;
 $contenuSitePerso = <<<EOF
 <h3>Introduction</h3>
@@ -187,6 +199,10 @@ Lorsqu'un id est mentionné dans l'url, le composant "réalisations" effectue un
 Pour le moment, les articles sont écrits directement dans le fichier php, en attendant de les mettre dans une base de données. Prochainement, l'api sera renplacée par une version écrite sous Symfony.
  La transition sera invisible pour le site front-end.</p>
 EOF;
+$resumePtitDej = <<<EOF
+PtitDej.fr est une landing page au format one-page. J'ai réalisé ce site en html, css, bootstrap, php et sql.l'idée de ce site est de mettre en relation les entreprises qui souhaitent organiser un 
+petit-déjeuner de travail et les organisateurs d'évènements ou les boulangeries.
+EOF;
 $contenuPtitDej = <<<EOF
 <h3>Le concept</h3>
 <p>l'idée de ce site est de mettre en relation les entreprises qui souhaitent organiser un petit-déjeuner de travail et les organisateurs d'évènements ou les boulangeries. En effet, organiser ce genre
@@ -224,11 +240,11 @@ conversion Les boutons CTA de petitdej amènent sur une page de formulaire. Le f
 demande de petit-déjeuner (pour les entreprises) soit leurs offres de petit-déjeuner (pour les prestataires).</p>
 EOF;
 $articleRea = [
-    ["id" => 6, "titre" => "Site personnel", "titreLangages" => "Site personnel (React.js)",       "image" => "sitePerso",     "contenu" => $contenuSitePerso],
-    ["id" => 1, "titre" => "Home Control",   "titreLangages" => "Home Control (html/css/bootstrap/java/php/js/jquery)",        "image" => "domotique",  "contenu" => $contenuHomeControl],
-    ["id" => 2, "titre" => "Un site de randonnée", "titreLangages" => "Un site de randonnée (html/css/bootstrap/php)",  "image" => "randonnee", "contenu" => $contenuRando],
-    ["id" => 3, "titre" => "Ptitdej.fr",   "titreLangages" => "Ptitdej.fr (html/css/bootstrap/php)",          "image" => "ptidej",    "contenu" => $contenuPtitDej,"lien" => "https://github.com/mlle-fantasia/ptitdej.fr", "lienNom" => "Dépôt du site sur Github"],
-    ["id" => 4, "titre" => "Pendu",   "titreLangages" => "Pendu (React.js)",               "image" => "pendu",     "contenu" => $contenuPendu , "lien" => "https://github.com/mlle-fantasia/pendu", "lienNom" => "Dépôt du jeu sur Github"],
+    ["id" => 6, "titre" => "Site personnel", "Langages" => "React.js",                           "image" => "sitePerso",     "contenu" => $contenuSitePerso, "resume" => $resumeSitePerso],
+    ["id" => 1, "titre" => "Home Control",   "Langages" => "html/css/bootstrap/java/php/js/jquery",  "image" => "domotique",  "contenu" => $contenuHomeControl, "resume" => $resumeHomeControl],
+    ["id" => 2, "titre" => "Un site de randonnée", "Langages" => "html/css/bootstrap/php",       "image" => "randonnee", "contenu" => $contenuRando,        "resume" => $resumeRando],
+    ["id" => 3, "titre" => "Ptitdej.fr",   "Langages" => "html/css/bootstrap/php",               "image" => "ptidej",    "contenu" => $contenuPtitDej,      "resume" => $resumePtitDej, "lien" => "https://github.com/mlle-fantasia/ptitdej.fr", "lienNom" => "Dépôt du site sur Github"],
+    ["id" => 4, "titre" => "Pendu",   "Langages" => "React.js",                                   "image" => "pendu",     "contenu" => $contenuPendu ,      "resume" => $resumePendu, "lien" => "https://github.com/mlle-fantasia/pendu", "lienNom" => "Dépôt du jeu sur Github"],
 //    ["id" => 5, "titre" => "Quoicuisiner.fr",        "image" => "cuisiner",  "contenu" => $contenuVide],
 ];
 
