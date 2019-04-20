@@ -116,38 +116,106 @@ $resumePendu = <<<EOF
 Deux applications du jeu du pendu. L'une en reactJs, l'autre en Angular 6. Dans cet article, j'explique quelques points techniques et je compare l'utilisation des deux technologies.
 EOF;
 $contenuPendu = <<<EOF
-<p>Ce projet est un TP que j'ai réalisé pour le cours sur Réact Sur OpenClassroom</p>
+<h3>Contexte</h3>
+<p>Lorsque j'ai commencé à chercher un travail dans le développement (2018) j'ai remarqué que des connaissances dans les frameworks ReactJs ou Angular étaient souvent demandées. Puis en me
+ renseignant sur les deux frameworks , j'ai appris que React avait une courbe d'apprentissage plus rapide. Je me suis donc attaquée au cours de OpenClassroom sur React. A la fin du cours, il est
+  proposé de réaliser un jeu du pendu en travail pratique. <br/><br/>
+Après avoir réalisé ce jeu, je me suis dit qu'il serait intéressant de reproduire le même avec le framework Angular et de comparer les deux. L'article présent en est le résultat. </p>
 <h3>Extrait des consignes du TP : </h3>
 <p>"- L’affichage comprend deux parties : le masque de la devinette, et une série de boutons d'essai, à raison d’un par lettre. Par exemple, deux rangées de 13.<br/>
 - Le masque utilise un _underscore_ ( _ ) pour toute lettre de la devinette qui n’a pas encore été révélé.<br/>
 - Pour simplifier la saisie et l’exploitation des lettres, on cantonnera les devinettes et les boutons à l'alphabet latin majuscule, sans signes diacritiques (accents, cédilles, etc.). Donc 26 lettres
- de A à Z.<br/>
+ de A à Z.</p>
 - Les lettres déjà essayées doivent être signalées visuellement (par exemple, grisées). Il n'est pas obligatoire d'interdire une nouvelle tentative dessus, c'est comme vous voulez.<br/>
 - Une fois le texte deviné, la liste des boutons de lettres est remplacée par un seul bouton qui permet de redémarrer une partie… sans avoir à recharger la page !<br/>
 Afin de vous permettre de vous concentrer sur React, nous vous donnons une petite fonction utile qui construit le masque affiché à partir du texte à deviner et de la série des lettres déjà testées. "</p>
-<h3>Le code</h3>
-<h4>les composants</h4>
-	<p>le projet se compose donc de deux composants : <br/>
-- Un composant pour les boutons des lettres de l'alphabet dont les props sont : une lettre (récupérée dans un tableau), un état (par défaut ou grisé), un index (qui constituera la clé) et une 
-fonction onClick.<br/>
-- Et un composant pour le nombre d'essais. </p>
-<h4>App.js</h4>
-	<p>App.js possède un "state" (état local) composé de :<br/> 
-le mot à deviner (qui est généré dès l'ouverture de la page), un tableau de lettres déjà cliquées (vide au départ), le nombre d'essais (0 au 
-	départ) et un état "gagné" qui est faux au départ. <br/>
-à chaque fois que le joueur clique sur une lettre la fonction "onClick" est appelée :<br/>
-- Elle met à jour le nombre d'essais dans l'état local, celui-ci est incrémenté,<br/>
-- la lettre est ajoutée au tableau de lettres déjà cliquées,<br/>
-- le tableau est transmis à la fonction qui s'occupe d'afficher le masque du mot<br/>
-- et enfin elle teste si le masque du mot est égal au mot, si oui elle met à jour la variable "gagné" à vrai. </p>
+<h3>Comparaison des applications</h3>
+<h4>Api-Dictionnaire</h4>
+<p>A la version 1 du pendu React, le dictionnaire se composait d'une vingtaine de mots dans un tableau qui se trouvait directement dans une constante du composant App. Ceci limitait grandement le jeu, je me 
+suis donc mise en quête d'un dictionnaire sur internet. Mais je ne pouvais pas copier tout un dictionnaire dans mon composant. <br/><br/>
+Ainsi la version 2 possédait un dictionnaire un peu plus conséquent dans un fichier à part. Et pour l'utilisait il me suffisait de l'importer dans mon composant en faisant : 
+<br/><code>import dictionnaire from './dictionnaire.json'</code>.<br/> Le problème avec cette solution c’est que l’application forçait l’utilisateur à télécharger le fichier plus ou moins volumineux pour en extraire un mot.<br/><br/>
+Quand est venu l'idée de faire un deuxième pendu en Angular, je me suis rapidement dit qu'il me faudrait un dictionnaire commun, accessible depuis les deux applications. C'est la version actuelle, la 3ème.
+ Après avoir trouvé un dictionnaire complet sur internet et l'avoir reformâter en json, j'ai cherché comment créer une petite api. J'ai installé une api avec node js et express.
+ <a href="https://expressjs.com/fr/" target="_blank">https://expressjs.com/fr/</a> et <a href="https://www.frugalprototype.com/developpez-propre-api-node-js-express/" target="_blank">https://www.frugalprototype.com/developpez-propre-api-node-js-express/</a> . 
+ Cette api renvoie un mot choisit au hasard au format json ce qui permet de faire transiter uniquement un mot à l’utilisateur. Ainsi, cela accélère l’application et préserve la bande passante de l’utilisateur.
+</p>
+<h4>Les composants</h4>
+<p>React et Angular sont des Frameworks qui fonctionnent à base de composants. Les composants sont des éléments de la page indépendants et autonomes. Chaque composant a sa structure, son style et son comportement propre.<br/> <br/>
+J'ai remarqué qu’Angular entraine plus de restriction dans l'architecture d'un projet. En générant un composant avec Angular CLI, Cela crée un dossier avec 4 fichiers pour le composant : un html, un css, un typeScript,
+ et un pour les tests. Le composant, décrit dans le fichier typeScript, est une classe. React, quant à lui, permet plus de liberté. Par exemple un composant n'est pas forcément une classe mais peut être juste une constante.<br/> <br/>
+Pour le pendu React , je n'avais jamais testé auparavant l'architecture en composant pour un projet. J'ai donc suivi gentiment le cours. Résultat, la majeur partie du code applicatif se trouve dans le composant parent 
+App et je n'ai que deux autres composants très simples.<br/><br/>
+Pour le pendu Angular, j'ai eu plus de facilité de compréhension générale (Grace à ma connaissance de React ). C'est pour cela qu'il possèdait plus de composants et que le code était plus découpé. Ensuite j'ai retravaillé sur le pendu React pour le découper davantage.
+</p>
 <h4>Le rendu </h4>
-	<p>Si la variable "gagné" est à faux, on map les boutons des lettres de l'alphabet sinon, on affiche un bouton "redémarrer". Lorsqu'il est cliqué, cela appelle une fonction qui remet l'état 
-	local à son état d'origine (tableau vide, nombre d'essais à 0, nouveau mot généré...).<br/>
-	Pour le rendu des boutons des lettres déjà cliquées, la fonction "getEtat" est appelée. Celle-ci vérifie si la lettre est dans le tableau de lettres déjà cliquées grâce à la fonction "indexOf". 
-	Selon si c'est oui ou non, l'apparence du bouton est modifiée grâce à une classe css.</p>
-<h4>Suite </h4>
-<p>Une fois que le TP a été réalisé comme demandé dans les consignes, je me suis occupée de l'améliorer un peu. J'ai tout d'abord réalisé le dessin du pendu avec react-konva puis je me suis 
-attaquée à la gestion de la difficulté (cette partie n'est pas totalement terminée).</p>
+<p>Pour le rendu, React utilise la syntaxe JSX qui a été créée spécialement pour lui alors qu'Angular utilise du HTML. Bien que JSX ressemble au HTML, il y a quelques différences à apprendre si on veut utiliser React.
+ Je ne vais pas les énumérer ici, ce n'est pas l'objectif de cet article. <br/><br/>
+La raison principale pour laquelle je préfère Angular pour le rendu, c'est que le HTML qui gère l'affichage est séparé de la logique métier. En effet, le premier se trouve dans le fichier HTML (sans surprise) et 
+la deuxième se trouve le fichier TypeScript (.ts). Cela facilite grandement la lecture du code, selon moi. Pour communiquer entre ces deux fichiers, il existe les méthodes d'interpolation et de property binding 
+ (depuis le .ts vers le .html) et le two-way binding (dans les deux sens).<br/><br/>
+A la différence, en React, la structure de la page décrite en JSX se trouve dans le fichier .js morcelée au milieu du code métier. Cela rend la lisibilité de la structure difficile. Le Pendu est une application 
+encore assez simple, je ne sais pas ce que ça peut donner dans une application beaucoup plus complexe.</p>
+<h5>Rendu dynamique</h5>
+<p>Pour rendre ses pages dynamiques une fois qu'elles sont présentes dans le DOM, React utilise l'état local. Celui-ci est décrit dans la variable state. Chaque composant possède son propre état local.
+ A chaque modification de cet état, React "rerender" la page. Ce qui met à jour la page ou un élément de celle-ci sans changer de page. Je trouve ce principe d'état local très pratique et facile à appréhender.<br/><br/>
+Angular procède, en fait, de la même manière. Ce sont les variables du composant qui définisse sont état du moment et lorsque, qu'une variable change, Angular met à jour la page de la même manière que React.
+</p>
+<h4>Problèmes rencontrés et solutions</h4>
+<h5>Les observables d'angular</h5>
+<p>Dans l'application Angular, j'ai eu du mal à appréhender le système des observables de Rxjs. c'est une notion très importante car elle permet de faire communiquer les composants entre eux. J'ai fait beaucoup 
+de recherche sur internet et de test avant de choisir une méthode qui me convient. En effet il existe différentes méthodes pour utiliser les observables. Ici, j'ai utilisé BehaviorSubject 
+<a href="https://pillar-soft.com/2018/07/02/behavior-subjects-in-angular-6/" target="_blank">https://pillar-soft.com/2018/07/02/behavior-subjects-in-angular-6/</a> .<br/> 
+<span class="h6">Petite explication :</span> les observables se composent d'un observable (l'observé) et d'un observateur. Lorsque l'observable (l'observé) émet une information, l'observateur l'intercepte
+ et peut effectuer ce pourquoi il est prévu. <br/>
+<span class="h6">Architecture de l'application : </span><br/>
+<img id="imgArchiPendu" src="/upload/images/archiPenduA.PNG" alt="exemple architecture Appli pendu"/><br/>
+<span class="h6">Objectif :</span> Lorsque la partie est finie, le composant « mot » doit en informer le composant « lettres ». Pour cela, il pourrait lui faire passer une variable. Et en fonction de cette variable,
+le composant "lettres" affiche soit les composants « lettre » soit le composant « redemmarer ».<br/>
+<span class="h6">Implémentation :</span> Dans MessageService, j'ai crée un nouveau "BehaviorSubject" défini par défaut à « false », c'est l'observable (l'observé) :
+ <div class="code">partieFinieOuiOuNon = new BehaviorSubject(false); </div>
+ puis, toujours dans le service, j'ai créé une fonction : <br/>
+ <div class="code">communicationFinDePartie(partieFinie) {<br/>
+  <div class="alinea">this.partieFinieOuiOuNon.next(partieFinie);</div>
+}<br/></div>
+Le composant Lettres est l'observateur, il doit observer le "BehaviorSubject" du service pour être au courant de chaque changement et mettre à jour sa propre variable partieFinie. Cela ce fait dans le constructeur du 
+composant comme ceci :
+ <div class="code">constructor(private messageService: MessageService) {<br/>
+  <div class="alinea">this.messageService.partieFinieOuiOuNon.subscribe((partieFinie) => {</div>
+  <div class="alineaD">this.partieFinie = partieFinie;</div>
+  <div class="alinea">});</div>
+}<br/></div>
+Ainsi, dans mon composant mot, lorsque la partie est finie, la variable <code>partieFinie</code> est mise à "true" et la fonction <code>communicationFinDePartie()</code> est appelée afin de transmettre la nouvelle valeur de la variable
+ au service (l'observable). Puis le composant lettres observe le changement, met à jour sa propre variable et la transmet à son template qui va afficher le bon composant. 
+</p>
+<h5>Les promesses</h5>
+<p>Que ce soit avec Angular ou avec React j'ai eu du mal à mettre en pratique le principe de promesse. Pour Importer le dictionnaire depuis l’extérieur de l'application, il fallait que l'application attende de récupérer
+ un mot avant de se lancer. En effet, que ce soit avec React ou Angular, toute les fonctions sont asyncrones. Alors comment faire lorsque l'application a besoin d'attendre une information pour fonctionner ?
+  Il faut utiliser des promesses.<br/>
+Pour Angular, j'ai créé un service qui s'occupe exclusivement de la requête du mot et le composant Mot fait appel à lui dans la fonction ngOnInit() (celle-ci est appelée à l’initialisation du composant) pour mettre 
+à jour sa variable mot. Le problème était que le mot arrivait trop tard et le reste du code engendrait des erreurs.<br/><br/>
+Après quelques recherches, j'ai trouvé une solution dans la méthode then() qui renvoie une promesse et qui exécute des callbacks lorsque la promesse est complète. <br/><br/>
+Pour React, je me suis dit que j'allais faire un composant parent qui s'occuperait d'aller chercher le mot , de mettre à jour son état local puis de le passer à son composant enfant. Pour cela j'ai mis ma requête
+ axios dans la fonction componentWillMount (fonction du cycle de vie). Mais j'ai compris après que ceci ne fonctionnait pas car le composant parent passait son état local avant que ma requête ne soit terminée.<br/><br/> 
+Petite précision sur axios : c'est un module externe qu'il faut importer dans le projet, il permet de faire des requêtes HTTP en utilisant le principe de promesse 
+<a href="https://www.npmjs.com/package/axios" target="bank">(https://www.npmjs.com/package/axios)</a> .<br/><br/>
+Finalement, J'ai utilisé le principe de async / await dans une fonction de mon composant App : 
+<div class="code">async getDictionnaire(){<br/>
+  <div class="alinea">const {mot} = this.state;</div>
+  <div class="alinea">const response = await axios.get(API);</div>
+  <div class="alinea">let Mot = response.data.mot;</div>
+  <div class="alinea">this.setState({mot: Mot});</div>
+}<br/></div>
+Le principe de async / await est une nouvelle syntaxe plus simple pour écrire des promesses. Ces mot clés rendent la fonction syncrone. Ainsi, l'exécution du script est stopé au niveau du "await" jusqu'a ce que le 
+requête soit complète et que la constante "response" soit remplie.
+</p>
+<h3>Les promesses</h3>
+<p>Selon moi, React est plus facile à comprendre et à mettre en place au début car il est plus permissif, mais cela peut devenir un inconvénient sur des applications volumineuses où le manque de rigueur peut 
+favoriser un code compliqué à relire. Mais cette application était pour ma première en React et ma première avec une architecture en composent donc  je pense que je n'ai pas utilisé tout le potentiel de React.
+ Cela fera l'objet d'une prochaine refactorisation.<br/><br/>
+A la différence, Angular est plus strict, ce qui favorise la lisibilité et donc la maintenance. J'ai rencontrer plus de difficultés lors de l'apprentissage d'Angular mais ceci est peut être du au fait que je
+ suis allé plus loin dans le principe de composant.
+</p>
 EOF;
 $contenuVide = <<<EOF
 <h4>Article en cours d'écriture</h4>
@@ -239,12 +307,105 @@ optimisant un point à la fois. Ensuite, on proposer une version à la moitié d
 conversion Les boutons CTA de petitdej amènent sur une page de formulaire. Le formulaire est différent pour les entreprises et les prestataires. Ils doivent renseigner leur identité et soit leur 
 demande de petit-déjeuner (pour les entreprises) soit leurs offres de petit-déjeuner (pour les prestataires).</p>
 EOF;
+$resumeVoyagesCroises = <<<EOF
+Un blog de recits de voyages réalisé avec wordpress en utilisant un thème existant.
+EOF;
+$contenuVoyagesCroises = <<<EOF
+<h3>Contexte</h3>
+<p>Les commanditaires du projet ont exprimé les besoins suivants : <br/>
+- Pouvoir diffuser leurs différentes expériences de voyages<br/>
+- Créer une communauté qui peut suivre leurs aventures<br/>
+- Que la communauté puisse partager des avis et des expériences<br/>
+La solution proposée a été de créer un site wordPress avec blog commentaire et liens vers les réseaux sociaux. Il n'y avait pas d'existant, j'ai donc créé la charte graphique et le logo.
+</p>
+<h3>WordPress - les plugins utilisés : </h3>
+<h4>Elementor</h4>
+<p>Cette extension est un builder de page, une manière différente de personnaliser les pages. Il offre de nombreuses 
+possibilités en fonction du thème sélectionné. Il est simple à prendre en main grâce au glisser-déposer et une vision 
+direct des changements.</p>
+<h4>Central Color Palette</h4>
+<p>	Ce plugin permet de définir des couleurs dans le tableau de bord. Celles-ci seront, ensuite, accessibles depuis la page "personnaliser". Cela évite de rechercher le code de la couleur à
+ chaque fois que l'on en a besoin. Ce plugin est accessible dans l'onglet réglage du tableau de bord.</p>
+<h4>Simple Masonry Layout</h4>
+<p>	j'ai utilisé ce plugin pour mettre en page les derniers posts sur la page d'accueil. Cela m'a permis de placer les posts en trois colonnes. En effet les widgets existants dans wordpress 
+ou les autres plugins gérant les derniers posts placent les posts les uns sous les autres. Cela ne me convenait pas. Avec ce plugin j'ai créé plusieurs pages de 3 posts. Les réglages des paramètres 
+de ce plugin sont accessibles dans l'onglet réglage du tableau de bord. Les posts doivent
+   être importés sur la page souhaitée grâce à un code court.</p>
+<h4>Photo Gallery</h4>
+<p>	Ce plugin permet de créer facilement des galeries d'images. Les fonctionnalités gratuites sont basiques. En accédant à la version payante on peut modifier la mise en page de la galerie. Après avoir
+ sélectionné les images de la galerie dans l'onglet spécial du plugin, il faut l'ajouter dans l'article en ajoutant un bloc appelé "Photo Gallery" et en sélectionnant la galerie souhaitée.</p>
+<h4>Smart Slider 3</h4>
+<p>	J'ai apprécié utiliser ce plugin pour créer le carrousel de la page d'accueil. Le carrousel se configure, indépendemment du site, dans le tableau de bord, puis il faut l'importer dans la page 
+souhaitée avec un code court. Il est très complet, responsive et assez facile d'utilisation. On peut ajouter de nombreux éléments, les déplacer facilement grâce au glisser-déposer. Le système de composition
+ "canvas" permet de placer les éléments n'importe où sur le slide alors que le système "content" permet de respecter une grille. On peut également modifier la composition pour les formats téléphone et tablette.</p>
+<h4>Yoast SEO</h4>
+<p>	 Ce plugin est très pratique pour le référencement. Il offre la possibilité pour chaque page de modifier les meta données.</p>
+<h4>All-in-One WP Migration</h4>
+<p>	J'ai utilisé ce plugin pour exporter mon thème réalisé en local et l'importer dans un wordpress vierge installer un prod.</p>
+<h3>Conclusion</h3>
+<p>	Une fois que la première prise en main est faite, il est très facile de créer des sites internet avec Wordpress. Le plus contraignant est de devoir, pour chaque spécificité du site, chercher le plugin qui 
+répondra au besoin. Le deuxième inconvéniént est que les différents réglages possibles de l'apparence du site sont déterminés par le thème choisi. C'est à dire que suivant le thème choisi, on sera plus ou
+ moins libre de modifier l'apparence du site. Cela signifie que le choix du thème est primordial.</p>
+EOF;
+
 $articleRea = [
-    ["id" => 6, "titre" => "Site personnel", "Langages" => "React.js",                           "image" => "sitePerso",     "contenu" => $contenuSitePerso, "resume" => $resumeSitePerso],
-    ["id" => 1, "titre" => "Home Control",   "Langages" => "html/css/bootstrap/java/php/js/jquery",  "image" => "domotique",  "contenu" => $contenuHomeControl, "resume" => $resumeHomeControl],
-    ["id" => 2, "titre" => "Un site de randonnée", "Langages" => "html/css/bootstrap/php",       "image" => "randonnee", "contenu" => $contenuRando,        "resume" => $resumeRando],
-    ["id" => 3, "titre" => "Ptitdej.fr",   "Langages" => "html/css/bootstrap/php",               "image" => "ptidej",    "contenu" => $contenuPtitDej,      "resume" => $resumePtitDej, "lien" => "https://github.com/mlle-fantasia/ptitdej.fr", "lienNom" => "Dépôt du site sur Github"],
-    ["id" => 4, "titre" => "Pendu",   "Langages" => "React.js",                                   "image" => "pendu",     "contenu" => $contenuPendu ,      "resume" => $resumePendu, "lien" => "https://github.com/mlle-fantasia/pendu", "lienNom" => "Dépôt du jeu sur Github"],
+    [
+        "id" => 6,
+        "titre" => "Site personnel",
+        "Langages" => "React.js",
+        "image" => "sitePerso",
+        "contenu" => $contenuSitePerso,
+        "resume" => $resumeSitePerso
+    ],
+    [
+        "id" => 1,
+        "titre" => "Home Control",
+        "Langages" => "html/css/bootstrap/java/php/js/jquery",
+        "image" => "domotique",
+        "contenu" => $contenuHomeControl,
+        "resume" => $resumeHomeControl
+    ],
+    [
+        "id" => 4,
+        "titre" => "Pendu",
+        "Langages" => "React.js",
+        "image" => "pendu",     "contenu" => $contenuPendu ,
+        "resume" => $resumePendu,
+        "liens" => [
+            ["lien" => "https://github.com/mlle-fantasia/pendu-react", "lienNom" => "Dépôt Github pendu React"],
+            ["lien" => "https://github.com/mlle-fantasia/pendu-angular", "lienNom" => "Dépôt Github pendu Angular"],
+            ["lien" => "http://localhost:3000/pendus#top", "lienNom" => "Le jeu"],
+        ] ,
+        "site" =>"http://localhost:3000/pendus#top",
+        "target"=>"_self"
+    ],
+    [
+        "id" => 7,
+        "titre" => "Voyages croisés",
+        "Langages" => "WordPress",
+        "image" => "voyagesCroises",     "contenu" => $contenuVoyagesCroises ,
+        "resume" => $resumeVoyagesCroises,
+        "liens" => [
+            ["lien" => "https://www.voyagescroises.com", "lienNom" => "voyages croisés"],
+        ] ,
+        "site" =>"https://www.voyagescroises.com",
+        "target"=>"_bank"
+    ],
+    [
+        "id" => 2,
+        "titre" => "Un site de randonnée",
+        "Langages" => "html/css/bootstrap/php",
+        "image" => "randonnee", "contenu" => $contenuRando,
+        "resume" => $resumeRando
+    ],
+    [
+        "id" => 3,
+        "titre" => "Ptitdej.fr",
+        "Langages" => "html/css/bootstrap/php",
+        "image" => "ptidej",    "contenu" => $contenuPtitDej,
+        "resume" => $resumePtitDej,
+        "lien" => "https://github.com/mlle-fantasia/ptitdej.fr", "lienNom" => "Dépôt du site sur Github"],
+
 //    ["id" => 5, "titre" => "Quoicuisiner.fr",        "image" => "cuisiner",  "contenu" => $contenuVide],
 ];
 
