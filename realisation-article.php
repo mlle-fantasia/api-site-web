@@ -209,7 +209,7 @@ Finalement, J'ai utilisé le principe de async / await dans une fonction de mon 
 Le principe de async / await est une nouvelle syntaxe plus simple pour écrire des promesses. Ces mot clés rendent la fonction syncrone. Ainsi, l'exécution du script est stopé au niveau du "await" jusqu'a ce que le 
 requête soit complète et que la constante "response" soit remplie.
 </p>
-<h3>Les promesses</h3>
+<h3>Conclusion</h3>
 <p>Selon moi, React est plus facile à comprendre et à mettre en place au début car il est plus permissif, mais cela peut devenir un inconvénient sur des applications volumineuses où le manque de rigueur peut 
 favoriser un code compliqué à relire. Mais cette application était pour ma première en React et ma première avec une architecture en composent donc  je pense que je n'ai pas utilisé tout le potentiel de React.
  Cela fera l'objet d'une prochaine refactorisation.<br/><br/>
@@ -377,7 +377,7 @@ $articleRea = [
             ["lien" => "http://localhost:3000/pendus#top", "lienNom" => "Le jeu"],
         ] ,
         "site" =>"http://localhost:3000/pendus#top",
-        "target"=>"_self"
+        "target"=>"_blank"
     ],
     [
         "id" => 7,
@@ -389,7 +389,7 @@ $articleRea = [
             ["lien" => "https://www.voyagescroises.com", "lienNom" => "voyages croisés"],
         ] ,
         "site" =>"https://www.voyagescroises.com",
-        "target"=>"_bank"
+        "target"=>"_blank"
     ],
     [
         "id" => 2,
