@@ -221,7 +221,7 @@ $contenuVide = <<<EOF
 <h4>Article en cours d'écriture</h4>
 EOF;
 $resumeSitePerso = <<<EOF
-Site sur lequel vous êtes en train de naviguer. Il me présente et présente quelques une de mes réalisations. Site réalisé avec ReactJS.
+Site sur lequel vous êtes en train de naviguer. Il me présente et présente quelques une de mes réalisations. Site réalisé avec ReactJS. L'article suivant parle du design du site et décrit quelques points techniques.
 EOF;
 $contenuSitePerso = <<<EOF
 <h3>Introduction</h3>
@@ -308,7 +308,7 @@ conversion Les boutons CTA de petitdej amènent sur une page de formulaire. Le f
 demande de petit-déjeuner (pour les entreprises) soit leurs offres de petit-déjeuner (pour les prestataires).</p>
 EOF;
 $resumeVoyagesCroises = <<<EOF
-Un blog de recits de voyages réalisé avec wordpress en utilisant un thème existant.
+Un blog de recits de voyages réalisé avec wordpress en utilisant un thème existant. L'article suivant décrit les plugins que j'ai utilisés.
 EOF;
 $contenuVoyagesCroises = <<<EOF
 <h3>Contexte</h3>
@@ -376,7 +376,7 @@ $articleRea = [
             ["lien" => "https://github.com/mlle-fantasia/pendu-angular", "lienNom" => "Dépôt Github pendu Angular"],
             ["lien" => "http://localhost:3000/pendus#top", "lienNom" => "Le jeu"],
         ] ,
-        "site" =>"http://localhost:3000/pendus#top",
+        "site" =>"https://www.marinafront.fr/pendus#top",
         "target"=>"_blank"
     ],
     [
