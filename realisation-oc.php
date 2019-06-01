@@ -2,16 +2,6 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json');
 
-$articleProjet = [
-    [
-        "id" => 1,
-        "titre" => "Projet 1 - Wordpress",
-        "Langages" => "Wordpress",
-        "article" => $articleP1,
-        "enonce" => $enonceP1,
-    ],
-
-];
 $articleP1 = <<<EOF
 <h4>Le thème utilisé</h4>
 <p>J'ai utilisé le thème Oceanwp, c'est un thème complé, qui offre de nombreuses possibilités de réglage. Je commence à bien le connaître. </p>
@@ -61,6 +51,29 @@ en terme de design, elle souhaite un design "clair, épuré, qui respire la lign
 L'agence souhaite egalement une documentation qui explique comment utiliser wordpress et plusieurs comptes utilisateur</p>
 EOF;
 
-echo json_encode(['error' => false, 'payloadProjet' => $articleProjet]);
+$articleProjet = [
+    [
+        "id" => 1,
+        "titre" => "Projet 1 - Wordpress",
+        "Langages" => "Wordpress",
+        "article" => $articleP1,
+        "enonce" => $enonceP1,
+    ],
+
+];
+if (!empty($_GET['id'])) {
+    foreach ($articleProjet as $projet) {
+        if ((int)$projet['id'] !== (int)$_GET['id']) {
+            continue;
+        }
+
+        echo json_encode(['error' => false, 'payload' => $projet]);
+        return true;
+    }
+    echo json_encode(['error' => true, 'payload' => "pas de projet"]);
+    return true;
+}
+
+echo json_encode(['error' => false, 'payload' => $articleProjet]);
 return true;
 

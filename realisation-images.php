@@ -35,6 +35,6 @@ if(!empty($_GET['id'])){
 //    return true;
 }
 
-echo json_encode(['error' => false, 'payloadImages' => $listeImage]);
+echo json_encode(['error' => false, 'payload' => $listeImage]);
 return true;
 

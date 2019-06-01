@@ -366,11 +366,36 @@ La formation OpenClassroom se compose en une série de Projets à réalisés à 
 Le lien vers la description exhaustive du parcours se trouve sur la droite de cet écran.
 </p>
 <h3>Les projets</h3>
+EOF;
 
-EOF;
 $resumeOC = <<<EOF
-Depuis le moi d'avril 2019, je suis la formation Développeur d'application Frontend avec OpenClassroom. Vous pourrez voir ici, les projets réalisés dans ce cadre.
+Depuis le mois d'avril 2019, je suis la formation Développeur d'application Frontend avec OpenClassroom. Vous pourrez voir ici, les projets réalisés dans ce cadre.
 EOF;
+
+$contenuColette = <<<EOF
+<h3>Contexte</h3>
+<p>Lorsque j'ai découvert cette horloge lors d'une visite à Paris, j'en suis tombée amoureuse. Il m'aura fallut quelques années et un peu de connaissance en javascript pour, enfin, réussir à la reproduire !</p>
+<h3>Le programme</h3>
+<p>j'ai utilisé : html, css, bootstrap, js, jQuery, momentjs et la police de caractère courierPrime.<br/>
+La police courier est essentiel au design elle permet d'avoir un joli carré grâce à la chasse des lettres qui est fixe (tous les caractères ont la même largeur).<br/>
+momentjs est une librairie qui permet de manipuler les dates. C'est une librairie absolument géniale ! 
+Je l'ai peu utilisée ici, juste pour récupérer l'heure actuelle est la formater, mais elle offre énormément de possibilités.<br/>
+css m'a permis de dessiner l'horloge telle qu'elle est en réalité et la plus grosse partie du travail se trouve dans le fichier js bien sûr. 
+Dans celui-ci, j'ai tout d'abord déclaré deux tableaux d'objets, un pour les heures et un pour les minutes. J'ai associé chaque heure et chaque groupe de minutes à une ou plusieurs classe(s)
+ (la classe associée au mot à éclairer en blanc). Puis le script boucle dans les tableaux pour ajouter la couleur blanche tout en prenant en compte les cas particuliers.
+  Finalement je n'ai utilisé que deux commande jQuery :
+  <code>$(".maClasse").addClass("blanc");</code> et <code>$(".maClasse").removeClass("blanc");</code>
+  Je me suis bien cassée la tête sur ce programme pour prendre en compte toute les possibilités, 
+  finalement j'ai revu l'intéret de découper son code en petite fonctions et l'intéret d'économiser les if et les else afin de ne pas s'y noyer.
+  Enfin, j'ai utilisé setInterval() pour appeler ma function à un interval régulié pour que l'heure s'affiche en direct.
+  
+</p>
+EOF;
+
+$resumeColette = <<<EOF
+Ce programme est une représentation numérique de l'horloge de la marque colette. La particularité de cette horloge est d'indique l'heure en toute lettre.
+EOF;
+
 $articleRea = [
     [
         "id" => 8,
@@ -383,6 +408,19 @@ $articleRea = [
             ["lien" => "https://openclassrooms.com/fr/paths/60-developpeur-dapplication-frontend", "lienNom" => "Description du parcours"],
             ["lien" => "http://p1.oc-marinafront.fr/", "lienNom" => "Projet 1"],
         ] ,
+    ],
+    [
+        "id" => 10,
+        "titre" => "Horloge colette",
+        "Langages" => "html, css, js, jQuery",
+        "image" => "colette",
+        "contenu" => $contenuColette,
+        "resume" => $resumeColette,
+        "liens" => [
+            ["lien" => "https://github.com/mlle-fantasia/horloge-colette", "lienNom" => "Dépôt Github"],
+        ] ,
+        "site" =>"https://colette.marinafront.fr/",
+        "target"=>"_blank"
     ],
     [
         "id" => 6,
@@ -464,12 +502,12 @@ if (!empty($_GET['id'])) {
             continue;
         }
 
-        echo json_encode(['error' => false, 'payloadArticle' => $article]);
+        echo json_encode(['error' => false, 'payload' => $article]);
         return true;
     }
-    echo json_encode(['error' => true, 'payloadArticle' => "pas d'article"]);
+    echo json_encode(['error' => true, 'payload' => "pas d'article"]);
     return true;
 }
 
-echo json_encode(['error' => false, 'payloadArticle' => $articleRea]);
+echo json_encode(['error' => false, 'payload' => $articleRea]);
 return true;
