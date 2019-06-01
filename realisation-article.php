@@ -348,7 +348,42 @@ répondra au besoin. Le deuxième inconvéniént est que les différents réglag
  moins libre de modifier l'apparence du site. Cela signifie que le choix du thème est primordial.</p>
 EOF;
 
+$contenuamc = <<<EOF
+<h3>Le context</h3>
+<p>La demande du client : mettre en ligne les talbleaux réalisés. <br/>
+la solution technique : Après avoir réalisé Voyages Croisés en intégrant un thème existant, j'ai voulu essayer de créer un thème. j'ai suivi les tutos de Lionel Gibaudan qui sont clairs et bien construits. 
+Je l'en remercie. 
+</p>
+EOF;
+$resumeamc = <<<EOF
+AMC Peinture est un blog réalisé avec wordpress. Pour ce blog j'ai créer le thème. Vous y découvrirez les peintures au couteau d'Anne-Marie Corsi.
+EOF;
+$contenuOC = <<<EOF
+<h3>Contexte</h3>
+<p>J'ai choisi de suivre cette formation car elle me permettra, à la fois, d'obtenir un diplôme reconnu Bac+3/4 et de gagner de l'expérience grâce au parcours en alternance. 
+Maintenant, je suis entre 3 et 4 jours par semaine en entreprise et entre 1 et 2 jour(s) par semaine en formation à distance. 
+La formation OpenClassroom se compose en une série de Projets à réalisés à l'aide des cours en libre accès sur le site et un tuteur qui nous suit chaque semaine. 
+Le lien vers la description exhaustive du parcours se trouve sur la droite de cet écran.
+</p>
+<h3>Les projets</h3>
+
+EOF;
+$resumeOC = <<<EOF
+Depuis le moi d'avril 2019, je suis la formation Développeur d'application Frontend avec OpenClassroom. Vous pourrez voir ici, les projets réalisés dans ce cadre.
+EOF;
 $articleRea = [
+    [
+        "id" => 8,
+        "titre" => "Formation OpenClassroom",
+        "Langages" => "Wordpress, html, css, js, uml, gestion de projet",
+        "image" => "oc",
+        "contenu" => $contenuOC,
+        "resume" => $resumeOC,
+        "liens" => [
+            ["lien" => "https://openclassrooms.com/fr/paths/60-developpeur-dapplication-frontend", "lienNom" => "Description du parcours"],
+            ["lien" => "http://p1.oc-marinafront.fr/", "lienNom" => "Projet 1"],
+        ] ,
+    ],
     [
         "id" => 6,
         "titre" => "Site personnel",
@@ -368,7 +403,7 @@ $articleRea = [
     [
         "id" => 4,
         "titre" => "Pendu",
-        "Langages" => "React.js",
+        "Langages" => "React.js VS Angular6",
         "image" => "pendu",     "contenu" => $contenuPendu ,
         "resume" => $resumePendu,
         "liens" => [
@@ -377,6 +412,19 @@ $articleRea = [
             ["lien" => "http://localhost:3000/pendus#top", "lienNom" => "Le jeu"],
         ] ,
         "site" =>"https://www.marinafront.fr/pendus#top",
+        "target"=>"_blank"
+    ],
+    [
+        "id" => 9,
+        "titre" => "AMC Peinture",
+        "Langages" => "WordPress",
+        "image" => "amc",     "contenu" => $contenuamc ,
+        "resume" => $resumeamc,
+        "liens" => [
+            ["lien" => "https://amc.mademoiselle-fantasia.fr/", "lienNom" => "AMC Peinture"],
+            ["lien" => "https://www.youtube.com/channel/UCXZ0uLdZ_1d3KaAUjpYzjjA/videos", "lienNom" => "Les tutos de Lionel Gibaudan"],
+        ] ,
+        "site" =>"https://amc.mademoiselle-fantasia.fr/",
         "target"=>"_blank"
     ],
     [
