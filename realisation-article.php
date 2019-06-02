@@ -363,7 +363,7 @@ $contenuOC = <<<EOF
 <p>J'ai choisi de suivre cette formation car elle me permettra, à la fois, d'obtenir un diplôme reconnu Bac+3/4 et de gagner de l'expérience grâce au parcours en alternance. 
 Maintenant, je suis entre 3 et 4 jours par semaine en entreprise et entre 1 et 2 jour(s) par semaine en formation à distance. 
 La formation OpenClassroom se compose en une série de Projets à réalisés à l'aide des cours en libre accès sur le site et un tuteur qui nous suit chaque semaine. 
-Le lien vers la description exhaustive du parcours se trouve sur la droite de cet écran.
+Le lien vers la description exhaustive du parcours se trouve si contre.
 </p>
 <h3>Les projets</h3>
 EOF;
@@ -385,9 +385,9 @@ Dans celui-ci, j'ai tout d'abord déclaré deux tableaux d'objets, un pour les h
  (la classe associée au mot à éclairer en blanc). Puis le script boucle dans les tableaux pour ajouter la couleur blanche tout en prenant en compte les cas particuliers.
   Finalement je n'ai utilisé que deux commande jQuery :
   <code>$(".maClasse").addClass("blanc");</code> et <code>$(".maClasse").removeClass("blanc");</code>
-  Je me suis bien cassée la tête sur ce programme pour prendre en compte toute les possibilités, 
-  finalement j'ai revu l'intéret de découper son code en petite fonctions et l'intéret d'économiser les if et les else afin de ne pas s'y noyer.
-  Enfin, j'ai utilisé setInterval() pour appeler ma function à un interval régulié pour que l'heure s'affiche en direct.
+  Je me suis bien cassée la tête sur ce programme pour prendre en compte toutes les possibilités, 
+  finalement j'ai revu l'intérêt de découper son code en petites fonctions et l'intérêt d'économiser les if et les else afin de ne pas s'y noyer.
+  Enfin, j'ai utilisé setInterval() pour appeler ma fonction à un intervalle régulier pour que l'heure s'affiche en direct.
   
 </p>
 EOF;
@@ -418,6 +418,7 @@ $articleRea = [
         "resume" => $resumeColette,
         "liens" => [
             ["lien" => "https://github.com/mlle-fantasia/horloge-colette", "lienNom" => "Dépôt Github"],
+            ["lien" => "https://colette.marinafront.fr/", "lienNom" => "horloge colette"],
         ] ,
         "site" =>"https://colette.marinafront.fr/",
         "target"=>"_blank"
