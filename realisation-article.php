@@ -360,9 +360,9 @@ AMC Peinture est un blog réalisé avec wordpress. Pour ce blog j'ai créer le t
 EOF;
 $contenuOC = <<<EOF
 <h3>Contexte</h3>
-<p>J'ai choisi de suivre cette formation car elle me permettra, à la fois, d'obtenir un diplôme reconnu Bac+3/4 et de gagner de l'expérience grâce au parcours en alternance. 
+<p>J'ai choisi de suivre cette formation, car elle me permettra, à la fois, d'obtenir un diplôme reconnu Bac+3/4 et de gagner de l'expérience grâce au parcours en alternance. 
 Maintenant, je suis entre 3 et 4 jours par semaine en entreprise et entre 1 et 2 jour(s) par semaine en formation à distance. 
-La formation OpenClassroom se compose en une série de Projets à réalisés à l'aide des cours en libre accès sur le site et un tuteur qui nous suit chaque semaine. 
+La formation OpenClassroom se compose d'une série de Projets à réaliser à l'aide des cours en libre accès sur le site et d'un tuteur qui nous suit chaque semaine. 
 Le lien vers la description exhaustive du parcours se trouve si contre.
 </p>
 <h3>Les projets</h3>
@@ -377,13 +377,13 @@ $contenuColette = <<<EOF
 <p>Lorsque j'ai découvert cette horloge lors d'une visite à Paris, j'en suis tombée amoureuse. Il m'aura fallut quelques années et un peu de connaissance en javascript pour, enfin, réussir à la reproduire !</p>
 <h3>Le programme</h3>
 <p>j'ai utilisé : html, css, bootstrap, js, jQuery, momentjs et la police de caractère courierPrime.<br/>
-La police courier est essentiel au design elle permet d'avoir un joli carré grâce à la chasse des lettres qui est fixe (tous les caractères ont la même largeur).<br/>
+La police "courier" est essentiel au design de l'horloge, elle permet d'avoir un joli carré grâce à la chasse des lettres qui est fixe (tous les caractères ont la même largeur).<br/>
 momentjs est une librairie qui permet de manipuler les dates. C'est une librairie absolument géniale ! 
-Je l'ai peu utilisée ici, juste pour récupérer l'heure actuelle est la formater, mais elle offre énormément de possibilités.<br/>
+Je l'ai peu utilisée ici, juste pour récupérer l'heure actuelle et la formater, mais elle offre énormément de possibilités.<br/>
 css m'a permis de dessiner l'horloge telle qu'elle est en réalité et la plus grosse partie du travail se trouve dans le fichier js bien sûr. 
 Dans celui-ci, j'ai tout d'abord déclaré deux tableaux d'objets, un pour les heures et un pour les minutes. J'ai associé chaque heure et chaque groupe de minutes à une ou plusieurs classe(s)
- (la classe associée au mot à éclairer en blanc). Puis le script boucle dans les tableaux pour ajouter la couleur blanche tout en prenant en compte les cas particuliers.
-  Finalement je n'ai utilisé que deux commande jQuery :
+ (la classe du mot à éclairer en blanc). Puis le script boucle dans les tableaux pour ajouter la couleur blanche tout en prenant en compte les cas particuliers.
+  Finalement, je n'ai utilisé que deux commandes jQuery :
   <code>$(".maClasse").addClass("blanc");</code> et <code>$(".maClasse").removeClass("blanc");</code>
   Je me suis bien cassée la tête sur ce programme pour prendre en compte toutes les possibilités, 
   finalement j'ai revu l'intérêt de découper son code en petites fonctions et l'intérêt d'économiser les if et les else afin de ne pas s'y noyer.
@@ -393,7 +393,7 @@ Dans celui-ci, j'ai tout d'abord déclaré deux tableaux d'objets, un pour les h
 EOF;
 
 $resumeColette = <<<EOF
-Ce programme est une représentation numérique de l'horloge de la marque colette. La particularité de cette horloge est d'indique l'heure en toute lettre.
+Ce programme est une représentation numérique de l'horloge de la marque colette. La particularité de cette horloge est d'indiquer l'heure en toute lettre.
 EOF;
 
 $articleRea = [
