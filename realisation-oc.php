@@ -13,25 +13,25 @@ Le site doit contenir :<br/>
 en terme de design, elle souhaite un design "clair, épuré, qui respire la ligne luxe de l'agence".
 </p>
 <h4>Le thème utilisé</h4>
-<p>J'ai utilisé le thème Oceanwp, c'est un thème complé, qui offre de nombreuses possibilités de réglage. Je commence à bien le connaître. </p>
+<p>J'ai utilisé le thème Oceanwp, c'est un thème complet, qui offre de nombreuses possibilités de réglage. Je commence à bien le connaître. </p>
 <h4>Les plugins utilisés</h4>
 <h5>Les plugins généraux</h5>
 <p>- Elementor<br/>
 Cette extension est un builder de page, une manière différente de personnaliser les pages. Il offre de nombreuses possibilités 
-en fonction du thème sélectionné. Il est simple à prendre en main grâce au glisser-déposer et une vision direct des changements.<br/>
+en fonction du thème sélectionné. Il est simple à prendre en main grâce au glisser-déposer et une vision directe des changements.<br/>
 - WP Form<br/>
 Pour la création de formulaire de contact.<br/>
 - Yoast SEO<br/>
 Ce plugin gère les metas données des pages, pour le référencement. j'installe ce plugin dans tous mes projets wordpress.</p>
-<h5>Les plugins particuliés</h5>
+<h5>Les plugins particuliers</h5>
 <p>- Gtranslate<br/>
-je suis parti du principe que l'agence pouvez avoir des client étrangés donc j'ai ajouté ce plugin de traduction qui simple et efficace.<br/>
+je suis partie du principe que l'agence pouvait avoir des clients étrangers donc j'ai ajouté ce plugin de traduction qui est simple et efficace.<br/>
 - recent-posts-widget-extended<br/>
 recent-posts-widget-extended est un pugin qui affiche les derniers articles.  
 Je l'ai utilisé sur la page d'accueil, sur la page de chalets à vendre et sur la page de chalets à louer.
 j’ai copié ce plugin et je l’ai modifié pour qu’il réponde exactement à ce que je voulais afficher en terme de design et en terme de contenu.<br/>
-. j’ai personalisé le style directement dans le plugin.<br/>
-. j’ai modifié le html pour pouvoir utilisé les flex de bootsptrap. <br/>
+. j’ai personnalisé le style directement dans le plugin.<br/>
+. j’ai modifié le html pour pouvoir utiliser les flex de bootsptrap. <br/>
 . j’ai ajouté un compteur pour pouvoir différencier l’affichage de chaque chalet (la photo à droite ou à gauche)<br/>
 . j’ai ajouté un champ dans le formulaire du plugin pour que l'utilisateur puisse choisir d'afficher la catégirie des articles (ici chalet à louer ou à vendre)<br/>
 - Nivo Slider<br/>

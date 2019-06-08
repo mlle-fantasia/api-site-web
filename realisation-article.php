@@ -26,13 +26,13 @@ $contenuHomeControl = <<<EOF
 	<p><strong>Voir image 2 de la galerie d'images ci-contre</strong></p>
 	<h4>Diagrammes UML</h4>
 	<p>Les diagrammes des cas d’utilisations permettent de visualiser l’interaction entre les différents acteurs et le système. Les acteurs humains qui ont des droits différents et les acteurs 
-	non-humains : le serveur, la BDD et le simulateur. </p>
+	non-humains : le serveur, la BDD et le simulateur. Les diagrammes ont été réalisés avec Visual Paradigm Online</p>
 	<p><strong>Voir exemples : image 3 de la galerie d'images ci-contre</strong></p>
 	<h4>L'intégration</h4>
 <p>A partir des maquettes réalisées sur Photoshop, nous avons intégré les différentes pages du site. Nous étions  trois sur l'intégration Web, nous 
 avons utilisé HTML CSS Bootstrap et jQuery .</p>
-	<h4>La programation</h4>
-	<p>Pour faire communiquer l'application et le simulateur, nous  sommes passés par un serveur java. Nous avons tout d'abord créer le serveur, puis les classes associées.<br/>
+	<h4>La programmation</h4>
+	<p>Pour faire communiquer l'application et le simulateur, nous  sommes passés par un serveur java. Nous avons tout d'abord créé le serveur, puis les classes associées.<br/>
 	Explication du système : Sur la page pilotage direct des équipements de la maison, lorsque l'on clique sur un équipement, JavaScript récupère l'identifiant de l'équipement et le 
 	transmet via une requête Ajax à des classes qui s'occupent d'ouvrir une nouvelle socket client, de transformer l'information en json, et de l'envoyer au serveur java.<br/>
 	De là, le serveur récupère l'information, la formate correctement et l'envoie au simulateur.</p>
@@ -123,7 +123,7 @@ $contenuPendu = <<<EOF
 Après avoir réalisé ce jeu, je me suis dit qu'il serait intéressant de reproduire le même avec le framework Angular et de comparer les deux. L'article présent en est le résultat. </p>
 <h3>Extrait des consignes du TP : </h3>
 <p>"- L’affichage comprend deux parties : le masque de la devinette, et une série de boutons d'essai, à raison d’un par lettre. Par exemple, deux rangées de 13.<br/>
-- Le masque utilise un _underscore_ ( _ ) pour toute lettre de la devinette qui n’a pas encore été révélé.<br/>
+- Le masque utilise un _underscore_ ( _ ) pour toute lettre de la devinette qui n’a pas encore été révélée.<br/>
 - Pour simplifier la saisie et l’exploitation des lettres, on cantonnera les devinettes et les boutons à l'alphabet latin majuscule, sans signes diacritiques (accents, cédilles, etc.). Donc 26 lettres
  de A à Z.</p>
 - Les lettres déjà essayées doivent être signalées visuellement (par exemple, grisées). Il n'est pas obligatoire d'interdire une nouvelle tentative dessus, c'est comme vous voulez.<br/>
@@ -133,18 +133,18 @@ Afin de vous permettre de vous concentrer sur React, nous vous donnons une petit
 <h4>Api-Dictionnaire</h4>
 <p>A la version 1 du pendu React, le dictionnaire se composait d'une vingtaine de mots dans un tableau qui se trouvait directement dans une constante du composant App. Ceci limitait grandement le jeu, je me 
 suis donc mise en quête d'un dictionnaire sur internet. Mais je ne pouvais pas copier tout un dictionnaire dans mon composant. <br/><br/>
-Ainsi la version 2 possédait un dictionnaire un peu plus conséquent dans un fichier à part. Et pour l'utilisait il me suffisait de l'importer dans mon composant en faisant : 
+Ainsi la version 2 possédait un dictionnaire un peu plus conséquent dans un fichier à part. Et pour l'utiliser il me suffisait de l'importer dans mon composant en faisant : 
 <br/><code>import dictionnaire from './dictionnaire.json'</code>.<br/> Le problème avec cette solution c’est que l’application forçait l’utilisateur à télécharger le fichier plus ou moins volumineux pour en extraire un mot.<br/><br/>
-Quand est venu l'idée de faire un deuxième pendu en Angular, je me suis rapidement dit qu'il me faudrait un dictionnaire commun, accessible depuis les deux applications. C'est la version actuelle, la 3ème.
- Après avoir trouvé un dictionnaire complet sur internet et l'avoir reformâter en json, j'ai cherché comment créer une petite api. J'ai installé une api avec node js et express.
+Quand est venue l'idée de faire un deuxième pendu en Angular, je me suis rapidement dit qu'il me faudrait un dictionnaire commun, accessible depuis les deux applications. C'est la version actuelle, la 3ème.
+ Après avoir trouvé un dictionnaire complet sur internet et l'avoir reformâté en json, j'ai cherché comment créer une petite api. J'ai installé une api avec node js et express.
  <a href="https://expressjs.com/fr/" target="_blank">https://expressjs.com/fr/</a> et <a href="https://www.frugalprototype.com/developpez-propre-api-node-js-express/" target="_blank">https://www.frugalprototype.com/developpez-propre-api-node-js-express/</a> . 
- Cette api renvoie un mot choisit au hasard au format json ce qui permet de faire transiter uniquement un mot à l’utilisateur. Ainsi, cela accélère l’application et préserve la bande passante de l’utilisateur.
+ Cette api renvoie un mot choisi au hasard au format json ce qui permet de faire transiter uniquement un mot à l’utilisateur. Ainsi, cela accélère l’application et préserve la bande passante de l’utilisateur.
 </p>
 <h4>Les composants</h4>
 <p>React et Angular sont des Frameworks qui fonctionnent à base de composants. Les composants sont des éléments de la page indépendants et autonomes. Chaque composant a sa structure, son style et son comportement propre.<br/> <br/>
 J'ai remarqué qu’Angular entraine plus de restriction dans l'architecture d'un projet. En générant un composant avec Angular CLI, Cela crée un dossier avec 4 fichiers pour le composant : un html, un css, un typeScript,
  et un pour les tests. Le composant, décrit dans le fichier typeScript, est une classe. React, quant à lui, permet plus de liberté. Par exemple un composant n'est pas forcément une classe mais peut être juste une constante.<br/> <br/>
-Pour le pendu React , je n'avais jamais testé auparavant l'architecture en composant pour un projet. J'ai donc suivi gentiment le cours. Résultat, la majeur partie du code applicatif se trouve dans le composant parent 
+Pour le pendu React , je n'avais jamais testé auparavant l'architecture en composant pour un projet. J'ai donc suivi gentiment le cours. Résultat, la majeure partie du code applicatif se trouve dans le composant parent 
 App et je n'ai que deux autres composants très simples.<br/><br/>
 Pour le pendu Angular, j'ai eu plus de facilité de compréhension générale (Grace à ma connaissance de React ). C'est pour cela qu'il possèdait plus de composants et que le code était plus découpé. Ensuite j'ai retravaillé sur le pendu React pour le découper davantage.
 </p>
@@ -152,33 +152,33 @@ Pour le pendu Angular, j'ai eu plus de facilité de compréhension générale (G
 <p>Pour le rendu, React utilise la syntaxe JSX qui a été créée spécialement pour lui alors qu'Angular utilise du HTML. Bien que JSX ressemble au HTML, il y a quelques différences à apprendre si on veut utiliser React.
  Je ne vais pas les énumérer ici, ce n'est pas l'objectif de cet article. <br/><br/>
 La raison principale pour laquelle je préfère Angular pour le rendu, c'est que le HTML qui gère l'affichage est séparé de la logique métier. En effet, le premier se trouve dans le fichier HTML (sans surprise) et 
-la deuxième se trouve le fichier TypeScript (.ts). Cela facilite grandement la lecture du code, selon moi. Pour communiquer entre ces deux fichiers, il existe les méthodes d'interpolation et de property binding 
+la deuxième se trouve dans le fichier TypeScript (.ts). Cela facilite grandement la lecture du code, selon moi. Pour communiquer entre ces deux fichiers, il existe les méthodes d'interpolation et de property binding 
  (depuis le .ts vers le .html) et le two-way binding (dans les deux sens).<br/><br/>
 A la différence, en React, la structure de la page décrite en JSX se trouve dans le fichier .js morcelée au milieu du code métier. Cela rend la lisibilité de la structure difficile. Le Pendu est une application 
 encore assez simple, je ne sais pas ce que ça peut donner dans une application beaucoup plus complexe.</p>
 <h5>Rendu dynamique</h5>
 <p>Pour rendre ses pages dynamiques une fois qu'elles sont présentes dans le DOM, React utilise l'état local. Celui-ci est décrit dans la variable state. Chaque composant possède son propre état local.
  A chaque modification de cet état, React "rerender" la page. Ce qui met à jour la page ou un élément de celle-ci sans changer de page. Je trouve ce principe d'état local très pratique et facile à appréhender.<br/><br/>
-Angular procède, en fait, de la même manière. Ce sont les variables du composant qui définisse sont état du moment et lorsque, qu'une variable change, Angular met à jour la page de la même manière que React.
+Angular procède, en fait, de la même manière. Ce sont les variables du composant qui définisse sont état du moment et lorsqu'une variable change, Angular met à jour la page de la même manière que React.
 </p>
 <h4>Problèmes rencontrés et solutions</h4>
 <h5>Les observables d'angular</h5>
 <p>Dans l'application Angular, j'ai eu du mal à appréhender le système des observables de Rxjs. c'est une notion très importante car elle permet de faire communiquer les composants entre eux. J'ai fait beaucoup 
-de recherche sur internet et de test avant de choisir une méthode qui me convient. En effet il existe différentes méthodes pour utiliser les observables. Ici, j'ai utilisé BehaviorSubject 
+de recherche sur internet et de tests avant de choisir une méthode qui me convient. En effet il existe différentes méthodes pour utiliser les observables. Ici, j'ai utilisé BehaviorSubject 
 <a href="https://pillar-soft.com/2018/07/02/behavior-subjects-in-angular-6/" target="_blank">https://pillar-soft.com/2018/07/02/behavior-subjects-in-angular-6/</a> .<br/> 
 <span class="h6">Petite explication :</span> les observables se composent d'un observable (l'observé) et d'un observateur. Lorsque l'observable (l'observé) émet une information, l'observateur l'intercepte
  et peut effectuer ce pourquoi il est prévu. <br/>
 <span class="h6">Architecture de l'application : </span><br/>
 <img id="imgArchiPendu" src="/upload/images/archiPenduA.PNG" alt="exemple architecture Appli pendu"/><br/>
 <span class="h6">Objectif :</span> Lorsque la partie est finie, le composant « mot » doit en informer le composant « lettres ». Pour cela, il pourrait lui faire passer une variable. Et en fonction de cette variable,
-le composant "lettres" affiche soit les composants « lettre » soit le composant « redemmarer ».<br/>
+le composant "lettres" affiche soit les composants « lettre » soit le composant « redémarrer ».<br/>
 <span class="h6">Implémentation :</span> Dans MessageService, j'ai crée un nouveau "BehaviorSubject" défini par défaut à « false », c'est l'observable (l'observé) :
  <div class="code">partieFinieOuiOuNon = new BehaviorSubject(false); </div>
  puis, toujours dans le service, j'ai créé une fonction : <br/>
  <div class="code">communicationFinDePartie(partieFinie) {<br/>
   <div class="alinea">this.partieFinieOuiOuNon.next(partieFinie);</div>
 }<br/></div>
-Le composant Lettres est l'observateur, il doit observer le "BehaviorSubject" du service pour être au courant de chaque changement et mettre à jour sa propre variable partieFinie. Cela ce fait dans le constructeur du 
+Le composant Lettres est l'observateur, il doit observer le "BehaviorSubject" du service pour être au courant de chaque changement et mettre à jour sa propre variable partieFinie. Cela se fait dans le constructeur du 
 composant comme ceci :
  <div class="code">constructor(private messageService: MessageService) {<br/>
   <div class="alinea">this.messageService.partieFinieOuiOuNon.subscribe((partieFinie) => {</div>
@@ -190,7 +190,7 @@ Ainsi, dans mon composant mot, lorsque la partie est finie, la variable <code>pa
 </p>
 <h5>Les promesses</h5>
 <p>Que ce soit avec Angular ou avec React j'ai eu du mal à mettre en pratique le principe de promesse. Pour Importer le dictionnaire depuis l’extérieur de l'application, il fallait que l'application attende de récupérer
- un mot avant de se lancer. En effet, que ce soit avec React ou Angular, toute les fonctions sont asyncrones. Alors comment faire lorsque l'application a besoin d'attendre une information pour fonctionner ?
+ un mot avant de se lancer. En effet, que ce soit avec React ou Angular, toutes les fonctions sont asyncrones. Alors comment faire lorsque l'application a besoin d'attendre une information pour fonctionner ?
   Il faut utiliser des promesses.<br/>
 Pour Angular, j'ai créé un service qui s'occupe exclusivement de la requête du mot et le composant Mot fait appel à lui dans la fonction ngOnInit() (celle-ci est appelée à l’initialisation du composant) pour mettre 
 à jour sa variable mot. Le problème était que le mot arrivait trop tard et le reste du code engendrait des erreurs.<br/><br/>
@@ -206,15 +206,15 @@ Finalement, J'ai utilisé le principe de async / await dans une fonction de mon 
   <div class="alinea">let Mot = response.data.mot;</div>
   <div class="alinea">this.setState({mot: Mot});</div>
 }<br/></div>
-Le principe de async / await est une nouvelle syntaxe plus simple pour écrire des promesses. Ces mot clés rendent la fonction syncrone. Ainsi, l'exécution du script est stopé au niveau du "await" jusqu'a ce que le 
+Le principe de async / await est une nouvelle syntaxe plus simple pour écrire des promesses. Ces mot clés rendent la fonction syncrone. Ainsi, l'exécution du script est stopé au niveau du "await" jusqu'à ce que la 
 requête soit complète et que la constante "response" soit remplie.
 </p>
 <h3>Conclusion</h3>
 <p>Selon moi, React est plus facile à comprendre et à mettre en place au début car il est plus permissif, mais cela peut devenir un inconvénient sur des applications volumineuses où le manque de rigueur peut 
 favoriser un code compliqué à relire. Mais cette application était pour ma première en React et ma première avec une architecture en composent donc  je pense que je n'ai pas utilisé tout le potentiel de React.
  Cela fera l'objet d'une prochaine refactorisation.<br/><br/>
-A la différence, Angular est plus strict, ce qui favorise la lisibilité et donc la maintenance. J'ai rencontrer plus de difficultés lors de l'apprentissage d'Angular mais ceci est peut être du au fait que je
- suis allé plus loin dans le principe de composant.
+A la différence, Angular est plus strict, ce qui favorise la lisibilité et donc la maintenance. J'ai rencontré plus de difficultés lors de l'apprentissage d'Angular mais ceci est peut être dû au fait que je
+ suis allée plus loin dans le principe de composant.
 </p>
 EOF;
 $contenuVide = <<<EOF
@@ -290,11 +290,11 @@ visiteurs). Les sites one pages sont des pages découpées en différentes secti
  clair et concis : <br/>
 - Première partie : présentation du concept sur une belle image de fond qui aide l'utilisateur à se mettre en situation. On y  trouve aussi les deux boutons CTA (Call-To-Action) pour lesquels le site
  a été conçu. <br/>
-- La partie suivante présente les avantages d'utiliser le site de manière très rapide. Lire les titres suffi à être convaincu.<br/>
+- La partie suivante présente les avantages d'utiliser le site de manière très rapide. Lire les titres suffit à être convaincu.<br/>
 - Le bandeau suivant est un rappel du bouton cta pour les entreprises.<br/>
 - Ensuite vient une partie qui explique de manière plus précise la démarche du site.<br/>
-- Le bandeau suivant est un rappel du bouton cta pour les prestaitaires.<br/>
-- Puis on trouve les commentaires des utilisateurs précedents qui assurent de la notoriété du site et rasurent les prospects.<br/>
+- Le bandeau suivant est un rappel du bouton cta pour les prestataires.<br/>
+- Puis on trouve les commentaires des utilisateurs précédents qui assurent de la notoriété au site et rasurent les prospects.<br/>
 - Enfin le footer comporte quelques liens.<br/>
 En ce qui concerne le design général : le site est propre, sur un fond blanc et rapide à lire et à comprendre. Les couleurs sont des couleurs chaudes qui donnent faim et les images de café et de thé
  sont également là pour donner envie.</p>
@@ -302,8 +302,8 @@ En ce qui concerne le design général : le site est propre, sur un fond blanc e
 <p>Le but d’un bouton  CTA, ou call-to-action,  est d’inciter les visiteurs à effectuer une action précise par le clic du bouton. Cela peut être "s'inscrire", "réserver", "commander"...<br/>
 L'optimisation des boutons CTA est un élément clé pour augmenter le taux de conversion. Les boutons doivent être très visibles, attractifs, ils doivent donner, au visiteur, l'envie de cliquer. 
 La taille, la couleur, la police, la forme, le texte et l'emplacement sont importants.<br/>
-Il est conseillé d'A/B tester les boutons CTA afin de trouver quelle couleur, quel texte, quelle forme... remporte de plus de clic. Le principe est de réaliser différentes versions du site en 
-optimisant un point à la fois. Ensuite, on proposer une version à la moitié des visiteurs et l'autre version à l'autre moitié des visiteurs. A partir de là, on verra quel site a un meilleur taux de 
+Il est conseillé d'A/B tester les boutons CTA afin de trouver quelle couleur, quel texte, quelle forme... remporte de plus de clics. Le principe est de réaliser différentes versions du site en 
+optimisant un point à la fois. Ensuite, on propose une version à la moitié des visiteurs et l'autre version à l'autre moitié des visiteurs. A partir de là, on verra quel site a un meilleur taux de 
 conversion Les boutons CTA de petitdej amènent sur une page de formulaire. Le formulaire est différent pour les entreprises et les prestataires. Ils doivent renseigner leur identité et soit leur 
 demande de petit-déjeuner (pour les entreprises) soit leurs offres de petit-déjeuner (pour les prestataires).</p>
 EOF;
@@ -322,7 +322,7 @@ La solution proposée a été de créer un site wordPress avec blog commentaire 
 <h4>Elementor</h4>
 <p>Cette extension est un builder de page, une manière différente de personnaliser les pages. Il offre de nombreuses 
 possibilités en fonction du thème sélectionné. Il est simple à prendre en main grâce au glisser-déposer et une vision 
-direct des changements.</p>
+directe des changements.</p>
 <h4>Central Color Palette</h4>
 <p>	Ce plugin permet de définir des couleurs dans le tableau de bord. Celles-ci seront, ensuite, accessibles depuis la page "personnaliser". Cela évite de rechercher le code de la couleur à
  chaque fois que l'on en a besoin. Ce plugin est accessible dans l'onglet réglage du tableau de bord.</p>
@@ -335,7 +335,7 @@ de ce plugin sont accessibles dans l'onglet réglage du tableau de bord. Les pos
 <p>	Ce plugin permet de créer facilement des galeries d'images. Les fonctionnalités gratuites sont basiques. En accédant à la version payante on peut modifier la mise en page de la galerie. Après avoir
  sélectionné les images de la galerie dans l'onglet spécial du plugin, il faut l'ajouter dans l'article en ajoutant un bloc appelé "Photo Gallery" et en sélectionnant la galerie souhaitée.</p>
 <h4>Smart Slider 3</h4>
-<p>	J'ai apprécié utiliser ce plugin pour créer le carrousel de la page d'accueil. Le carrousel se configure, indépendemment du site, dans le tableau de bord, puis il faut l'importer dans la page 
+<p>	J'ai apprécié utiliser ce plugin pour créer le carrousel de la page d'accueil. Le carrousel se configure, indépendamment du site, dans le tableau de bord, puis il faut l'importer dans la page 
 souhaitée avec un code court. Il est très complet, responsive et assez facile d'utilisation. On peut ajouter de nombreux éléments, les déplacer facilement grâce au glisser-déposer. Le système de composition
  "canvas" permet de placer les éléments n'importe où sur le slide alors que le système "content" permet de respecter une grille. On peut également modifier la composition pour les formats téléphone et tablette.</p>
 <h4>Yoast SEO</h4>
@@ -363,7 +363,7 @@ $contenuOC = <<<EOF
 <p>J'ai choisi de suivre cette formation, car elle me permettra, à la fois, d'obtenir un diplôme reconnu Bac+3/4 et de gagner de l'expérience grâce au parcours en alternance. 
 Maintenant, je suis entre 3 et 4 jours par semaine en entreprise et entre 1 et 2 jour(s) par semaine en formation à distance. 
 La formation OpenClassroom se compose d'une série de Projets à réaliser à l'aide des cours en libre accès sur le site et d'un tuteur qui nous suit chaque semaine. 
-Le lien vers la description exhaustive du parcours se trouve si contre.
+Le lien vers la description exhaustive du parcours se trouve ci contre.
 </p>
 <h3>Les projets</h3>
 EOF;
@@ -374,10 +374,10 @@ EOF;
 
 $contenuColette = <<<EOF
 <h3>Contexte</h3>
-<p>Lorsque j'ai découvert cette horloge lors d'une visite à Paris, j'en suis tombée amoureuse. Il m'aura fallut quelques années et un peu de connaissance en javascript pour, enfin, réussir à la reproduire !</p>
+<p>Lorsque j'ai découvert cette horloge lors d'une visite à Paris, j'en suis tombée amoureuse. Il m'aura fallu quelques années et un peu de connaissance en javascript pour, enfin, réussir à la reproduire !</p>
 <h3>Le programme</h3>
 <p>j'ai utilisé : html, css, bootstrap, js, jQuery, momentjs et la police de caractère courierPrime.<br/>
-La police "courier" est essentiel au design de l'horloge, elle permet d'avoir un joli carré grâce à la chasse des lettres qui est fixe (tous les caractères ont la même largeur).<br/>
+La police "courier" est essentielle au design de l'horloge, elle permet d'avoir un joli carré grâce à la chasse des lettres qui est fixe (tous les caractères ont la même largeur).<br/>
 momentjs est une librairie qui permet de manipuler les dates. C'est une librairie absolument géniale ! 
 Je l'ai peu utilisée ici, juste pour récupérer l'heure actuelle et la formater, mais elle offre énormément de possibilités.<br/>
 css m'a permis de dessiner l'horloge telle qu'elle est en réalité et la plus grosse partie du travail se trouve dans le fichier js bien sûr. 
@@ -385,7 +385,7 @@ Dans celui-ci, j'ai tout d'abord déclaré deux tableaux d'objets, un pour les h
  (la classe du mot à éclairer en blanc). Puis le script boucle dans les tableaux pour ajouter la couleur blanche tout en prenant en compte les cas particuliers.
   Finalement, je n'ai utilisé que deux commandes jQuery :
   <code>$(".maClasse").addClass("blanc");</code> et <code>$(".maClasse").removeClass("blanc");</code>
-  Je me suis bien cassée la tête sur ce programme pour prendre en compte toutes les possibilités, 
+  Je me suis bien cassé la tête sur ce programme pour prendre en compte toutes les possibilités, 
   finalement j'ai revu l'intérêt de découper son code en petites fonctions et l'intérêt d'économiser les if et les else afin de ne pas s'y noyer.
   Enfin, j'ai utilisé setInterval() pour appeler ma fonction à un intervalle régulier pour que l'heure s'affiche en direct.
   
