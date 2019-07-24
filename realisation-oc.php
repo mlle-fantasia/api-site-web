@@ -44,6 +44,14 @@ Ce plugin m'a permis de personnaliser le footer et de l'adapter ainsi parfaiteme
 </p>
 EOF;
 $articleP2 = <<<EOF
+<h4>Résumé de l'énoncé</h4>
+<p>Pour son futur festival de films de plein air, le client souhaite communiquer sur les films au programmes et sur l'actualité du festival .<br/>
+le projet consiste à : <br/>
+- définir une solution technique pour le client <br/>
+- réaliser le cahier des charges <br/>
+- réaliser les maquettes <br/>
+- réaliser et l'intégration du site.<br/>
+</p>
 EOF;
 
 $articleProjet = [
@@ -53,6 +61,13 @@ $articleProjet = [
         "Langages" => "Wordpress",
         "article" => $articleP1,
         "lien" => "http://p1.oc-marinafront.fr/",
+    ],
+    [
+        "id" => 2,
+        "titre" => "Projet 2 - html, css, bootstrap",
+        "Langages" => "html, css, bootstrap",
+        "article" => $articleP2,
+        "lien" => "http://p3.oc-marinafront.fr/",
     ],
 
 ];

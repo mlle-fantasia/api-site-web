@@ -407,6 +407,7 @@ $articleRea = [
         "liens" => [
             ["lien" => "https://openclassrooms.com/fr/paths/60-developpeur-dapplication-frontend", "lienNom" => "Description du parcours"],
             ["lien" => "http://p1.oc-marinafront.fr/", "lienNom" => "Projet 1"],
+            ["lien" => "http://p3.oc-marinafront.fr/", "lienNom" => "Projet 2"],
         ] ,
     ],
     [
